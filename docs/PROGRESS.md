@@ -11,7 +11,7 @@
 - Bones: all 5 swapped to BodyParts3D (ICP mean 0.37–0.68 mm, max 2.8 mm). Swap only if BP3D has more triangles.
 - Coordinates: Z-Anatomy world, no recentring. GLB is glTF y-up: glTF (x, y, z) = Z-Anatomy (x, z, -y). Same as Han-vr hand.glb.
 - Budget (rule 4): only context bones decimated (≤0.30 mm): 141k → 33k. Total 763k + 52k subdivision = 815k → 707k. Remaining over-budget is protected tissue; you will check fps first.
-- Smoothing (rule 4b, tools/subdiv.py): 1 Loop subdivision level (×4 triangles), every vertex limited to ≤0.30 mm from the unsmoothed shape, on: 4 cuff muscles (whole objects incl. tendons), GH capsule, SGHL/MGHL/IGHL, labrum, CHL, CA ligament, long head of biceps (whole object). +44k triangles. CA ligament has only 12 triangles in the source, so it stays box-like within 0.3 mm.
+- Smoothing (rule 4b, tools/subdiv.py): 1 Loop subdivision level (×4 triangles), every vertex limited to ≤0.30 mm from the unsmoothed shape, on: 4 cuff muscles (whole objects incl. tendons), GH capsule, SGHL/MGHL/IGHL, labrum, CHL, CA ligament, long head of biceps (whole object). +44k triangles. CA ligament has only 12 triangles in the source, so it stays box-like within 0.3 mm. Nearest-point check: 0.29–0.30 mm on all, 0.36 mm on MGHL (likely a measuring error; vertex moves capped at 0.30).
 
 ## Known problems
 - MCN does not pierce coracobrachialis; SSP/ISP footprints differ from Mochizuki; radial nerve leaves the humerus 42 mm low (see CHECKS.md).
@@ -19,7 +19,7 @@
 - Viewer still points at hand.glb (Phase B).
 
 ## Next step
-- Phase B: viewer reads assets/model.json, recentres on GH joint, starts Realistic; landmark patches.
+- Phase B (then Quest fps check at 707k triangles): viewer reads assets/model.json, recentres on GH joint, starts Realistic; landmark patches.
 
 ## Key files
-- tools/region.py, zsel.py, build_assets.py, decimate.py, measure.py · data/raw/build_log.txt (git-ignored)
+- tools/region.py, zsel.py, build_assets.py, decimate.py (context bones only), subdiv.py, measure.py · data/raw/build_log.txt (git-ignored)
