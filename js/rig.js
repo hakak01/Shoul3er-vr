@@ -2,6 +2,8 @@
 // muscle bulge (cross-section x sqrt(rest length / length)) and ligament tension colours (look.json "tension").
 // Humerus = humerothoracic plane / elevation / rotation (swing, then twist; ER +). Scapula and clavicle: ISB Y-X-Z.
 import * as THREE from 'three';
+import { Wrap, prepareMorphs } from './wrap.js';
+import { Ropes } from './ropes.js';
 
 const R = THREE.MathUtils.degToRad, V = (a) => new THREE.Vector3(...a);
 const M = () => new THREE.Matrix4();
@@ -12,6 +14,9 @@ const interp = (k, x) => {
   for (let i = 1; i < k.length; i++) if (x <= k[i][0]) { const [x0, y0] = k[i - 1], [x1, y1] = k[i]; return y0 + (y1 - y0) * (x - x0) / (x1 - x0); }
   return k[k.length - 1][1];
 };
+// rhythm curve: a keyframe list, or {plane: list} (interpolated over the plane of elevation, clamped)
+const curve = (c, e, pl) => Array.isArray(c) ? interp(c, e)
+  : interp(Object.keys(c).map(Number).sort((a, b) => a - b).map((p) => [p, interp(c[p], e)]), pl);
 export const ST_KEYS = [['clavicle', 'retraction'], ['clavicle', 'elevation'], ['clavicle', 'posteriorRotation'],
   ['scapula', 'upwardRotation'], ['scapula', 'posteriorTilt'], ['scapula', 'externalRotation']];
 
@@ -45,14 +50,14 @@ export function prepareSkins(scene) {
       .multiply(m.bindMatrix);
     const pos = m.geometry.attributes.position, a = new Float32Array(pos.count * 3);
     for (let i = 0; i < pos.count; i++) v.fromBufferAttribute(pos, i).applyMatrix4(Q).toArray(a, i * 3);
-    m.geometry.setAttribute('position', new THREE.BufferAttribute(a, 3));
+    m.geometry.setAttribute('position', new THREE.BufferAttribute(a, 3)); prepareMorphs(m, Q);
     m.geometry.computeBoundingBox(); m.geometry.computeBoundingSphere();
     m.bind(shared, m.matrixWorld); m.frustumCulled = false;
   }
 }
 
 export class Rig {
-  constructor(app, rig, rhythm, look) {
+  constructor(app, rig, rhythm, look, wrap) {
     this.app = app; this.A = app.anatomy; this.rig = rig; this.rh = rhythm; this.lim = rhythm.limits;
     this.scene = this.A.center.children[0];
     const skinned = []; this.A.center.traverse((o) => { if (o.isSkinnedMesh) skinned.push(o); });
@@ -65,12 +70,16 @@ export class Rig {
     const r = rig.rest; this.rest = r;
     this.p = { plane: r.humerus[0], elev: r.humerus[1], rot: r.humerus[2], elbow: r.elbowFlexion, sup: r.supination };
     this.home = { ...this.p };
-    this.manual = false; this.st = this.rhythmAt(this.p.elev); this.tensionOn = false;
+    this.manual = false; this.st = this.rhythmAt(this.p.elev, this.p.plane); this.tensionOn = false;
     const T = look.tension || {};
     this.tu = { uTenOn: { value: 0 }, uTenAt: { value: new THREE.Vector2(T.midAt ?? 0.04, T.tightAt ?? 0.08) },
       uTenC0: { value: new THREE.Color(T.slack || '#8c8c8c') }, uTenC1: { value: new THREE.Color(T.mid || '#f2c400') },
       uTenC2: { value: new THREE.Color(T.tight || '#e02a1b') } };
     this.setup(); this.dirty = true;
+    if (wrap && wrap.thorax) {          // Phase D2: scapula-thorax contact, corrective shapes, nerve/vessel ropes
+      this.wrap = new Wrap(this, wrap);
+      try { this.ropes = wrap.ropes && new Ropes(this, wrap.ropes); } catch (e) { console.warn('ropes off', e); }
+    }
   }
 
   // per-mesh uniforms for bulge (muscles) and tension (ligaments with fibre data); labels follow their bone
@@ -128,9 +137,9 @@ export class Rig {
   }
 
   // scapula / clavicle changes (deg, anatomical +) from the rhythm, relative to the model's rest elevation
-  rhythmAt(e) {
+  rhythmAt(e, pl) {
     const o = {}, e0 = this.rest.humerus[1];
-    for (const [seg, k] of ST_KEYS) o[seg + '.' + k] = interp(this.rh[seg][k], e) - interp(this.rh[seg][k], e0);
+    for (const [seg, k] of ST_KEYS) o[seg + '.' + k] = curve(this.rh[seg][k], e, pl) - curve(this.rh[seg][k], e0, pl);
     return o;
   }
   maxElev(plane) { return interp(this.lim.maxElevationByPlane, plane); }
@@ -142,7 +151,7 @@ export class Rig {
   }
   set(vals) { Object.assign(this.p, vals); this.clamp(); this.dirty = true; }
   setST(key, v) { this.st[key] = v; this.dirty = true; }
-  setManual(on) { if (on && !this.manual) this.st = this.rhythmAt(this.p.elev); this.manual = on; this.dirty = true; }
+  setManual(on) { if (on && !this.manual) this.st = this.rhythmAt(this.p.elev, this.p.plane); this.manual = on; this.dirty = true; }
   setTension(on) { this.tensionOn = on; this.tu.uTenOn.value = on ? 1 : 0; }
 
   // humerothoracic rotation (thorax axes) from plane / elevation / rotation
@@ -152,13 +161,17 @@ export class Rig {
   }
   // bone delta rotations (glTF space, relative to rest)
   deltas() {
-    const r = this.rest, p = this.p, d = this.manual ? this.st : this.rhythmAt(p.elev), F = this.F, Ft = F.thorax;
+    const r = this.rest, p = this.p, d = this.manual ? this.st : this.rhythmAt(p.elev, p.plane), F = this.F, Ft = F.thorax;
     const seg = (rel, Fs) => M().multiplyMatrices(Ft, rel).multiply(M().copy(Fs).transpose());
     const Q = { thorax: M() };
     Q.clavicle = seg(yxz(r.clavicle[0] - d['clavicle.retraction'], r.clavicle[1] - d['clavicle.elevation'],
       r.clavicle[2] + d['clavicle.posteriorRotation']), F.clavicle);
     Q.scapula = seg(yxz(r.scapula[0] - d['scapula.externalRotation'], r.scapula[1] - d['scapula.upwardRotation'],
       r.scapula[2] + d['scapula.posteriorTilt']), F.scapula);
+    if (this.wrap) {
+      const hc = V(this.rig.joints.clavicle), hs = V(this.rig.joints.scapula);
+      Q.scapula = this.wrap.contact(Q.scapula, hs, hs.clone().sub(hc).applyMatrix4(Q.clavicle).add(hc)).multiply(Q.scapula);
+    }
     Q.humerus = seg(this.ht(p), F.humerus);
     Q.ulna = M().copy(Q.humerus).multiply(M().makeRotationAxis(this.ax.elbow, R(p.elbow - r.elbowFlexion)));
     Q.radius = M().copy(Q.ulna).multiply(M().makeRotationAxis(this.ax.forearm, R(p.sup - r.supination)));
@@ -166,6 +179,7 @@ export class Rig {
   }
 
   update() {
+    if (this.ok && !this.dirty && this.ropes && this.ropes.left > 0) { this.ropes.step(30); if (this.ropes.left <= 0) this.app.onPose && this.app.onPose(); }
     if (!this.ok || !this.dirty) return;
     this.dirty = false;
     const Q = this.deltas(), q = new THREE.Quaternion(), names = this.rig.bones;
@@ -194,6 +208,8 @@ export class Rig {
       for (let i = 0; i < 2; i++) { w.fromArray(L.ln, i * 3).applyMatrix4(d); a.setXYZ(i, w.x, w.y, w.z); }
       a.needsUpdate = true;
     }
+    if (this.wrap) this.wrap.update(this.p);
+    if (this.ropes) this.ropes.update(D);
     for (const m of this.skinned) { m.boundingSphere = null; m.boundingBox = null; }
     this.app.onPose && this.app.onPose();
   }
@@ -223,6 +239,9 @@ export class Rig {
 
   // one line for the info panel: ligament stretch or muscle length vs the neutral (rest) pose
   info(s) {
+    const st = this.ok && this.ropes && this.ropes.stretch(s.name);
+    if (st) return 'Stretch vs neutral: ' + (st.whole < -0.005 ? 'slack' : (100 * st.whole).toFixed(1) + '%') + ' whole' +
+      (st.part > 0.005 ? `, ${(100 * st.part).toFixed(1)}% in the most stretched part between fixed points` : '') + ' (approx.)';
     const l = this.ok && this.ligs.find((x) => x.s === s);
     if (l && l.e) return 'Stretch vs neutral: ' + (100 * Math.max(...l.e)).toFixed(1) + '% (most stretched part)';
     const m = this.ok && this.mus.find((x) => x.m.userData.struct === s);

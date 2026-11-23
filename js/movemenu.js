@@ -35,9 +35,9 @@ export function tabMove(menus, p) {
     { active: R.tensionOn, size: 20 });
   p.button(325, y, 300, 50, 'Manual scapula: ' + (R.manual ? 'ON' : 'off'), () => { R.setManual(!R.manual); menus.refresh(); },
     { active: R.manual, size: 20 }); y += 58;
-  const d = R.manual ? R.st : R.rhythmAt(P.elev), gh = P.elev - d['scapula.upwardRotation'];
+  const d = R.manual ? R.st : R.rhythmAt(P.elev, P.plane), gh = P.elev - d['scapula.upwardRotation'];
   p.text(20, y + 12, `Scapula: upward rot ${d['scapula.upwardRotation'].toFixed(0)}°, post. tilt ${d['scapula.posteriorTilt'].toFixed(0)}° ` +
-    `(change from rest) · GH ≈ ${gh.toFixed(0)}°`, { size: 18, color: '#9aa', wrap: 610 }); y += 30;
+    `(change from rest) · GH ≈ ${gh.toFixed(0)}°` + (R.wrap ? ` · thorax contact +${R.wrap.extra.toFixed(0)}°` : ''), { size: 18, color: '#9aa', wrap: 610 }); y += 30;
   if (R.manual) for (const [seg, k] of ST_KEYS) {
     const key = seg + '.' + k; row(p, y, ST_LABEL[key], R.st[key], -40, 70, (x) => R.setST(key, x)); y += 48;
   }

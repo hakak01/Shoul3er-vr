@@ -10,7 +10,7 @@ import { XR } from './xr.js';
 import { Realism } from './tissues.js';
 import { Rig, prepareSkins } from './rig.js';
 
-const GLB_SIZE = 5.1e6, GAPS_SIZE = 0.3e6;   // used for the loading bar if the server gives no size
+const GLB_SIZE = 6.0e6, GAPS_SIZE = 0.37e6;   // used for the loading bar if the server gives no size
 const app = { fps: 0 };
 window.app = app;
 
@@ -42,8 +42,8 @@ async function load() {
   const model = await get('assets/model.json'); app.model = model;
   if (model.title) document.title = model.title + ' VR';
   const js = (g) => 'assets/' + (g || '').replace(/\.glb$/, '.json');
-  const [look, manifest, gapsMan, markMan, rigData, rhythm] = await Promise.all(['assets/look.json', 'assets/manifest.json',
-    js(model.gaps), js(model.landmarks), 'assets/rig.json', 'assets/rhythm.json'].map(get));
+  const [look, manifest, gapsMan, markMan, rigData, rhythm, wrap] = await Promise.all(['assets/look.json', 'assets/manifest.json',
+    js(model.gaps), js(model.landmarks), 'assets/rig.json', 'assets/rhythm.json', 'assets/wrap.json'].map(get));
   app.bg = new THREE.Color(look.background); scene.background = app.bg;
   const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   const got = {}, tot = {};
@@ -56,7 +56,7 @@ async function load() {
   loadText.textContent = 'Preparing…';
   prepareSkins(gltf.scene);
   const A = new Anatomy(root, gltf.scene, manifest.concat(gapsMan || [], markMan || []), look, model.center); app.anatomy = A;
-  if (rigData.bones && rhythm.limits) app.rig = new Rig(app, rigData, rhythm, look);
+  if (rigData.bones && rhythm.limits) app.rig = new Rig(app, rigData, rhythm, look, wrap);
   app.menus = new Menus(app);
   A.onChange = () => app.menus && app.menus.buildInfo();
   app.menus.menu.attachDom('menuCanvas'); app.menus.info.attachDom('infoCanvas');

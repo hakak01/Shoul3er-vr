@@ -44,3 +44,31 @@ def add_skin(src, dst, names, parents, heads, weights):
         fh.write(struct.pack('<III', 0x46546C67, 2, 12 + 8 + len(js) + 8 + len(blob)))
         fh.write(struct.pack('<II', len(js), 0x4E4F534A)); fh.write(js)
         fh.write(struct.pack('<II', len(blob), 0x004E4942)); fh.write(bytes(blob))
+
+
+def add_targets(src, dst, names, targets):
+    """Add relative POSITION morph targets. targets: {node name: [per primitive: list of (n,3) arrays, one per name]}"""
+    b = open(src, 'rb').read(); n = struct.unpack('<I', b[12:16])[0]
+    j = json.loads(b[20:20 + n]); blob = bytearray(b[20 + n + 8:])
+    for nd in j['nodes']:
+        T = targets.get(nd.get('name'))
+        if 'mesh' not in nd or T is None: continue
+        mesh = j['meshes'][nd['mesh']]
+        for p, per in zip(mesh['primitives'], T):
+            p['targets'] = []
+            for arr in per:
+                arr = np.ascontiguousarray(arr, np.float32)
+                while len(blob) % 4: blob.append(0)
+                j['bufferViews'].append(dict(buffer=0, byteOffset=len(blob), byteLength=arr.nbytes, target=34962))
+                blob.extend(arr.tobytes())
+                j['accessors'].append(dict(bufferView=len(j['bufferViews']) - 1, componentType=5126, count=len(arr), type='VEC3',
+                                           min=arr.min(0).tolist(), max=arr.max(0).tolist()))
+                p['targets'].append({'POSITION': len(j['accessors']) - 1})
+        mesh['weights'] = [0.0] * len(names); mesh.setdefault('extras', {})['targetNames'] = list(names)
+    while len(blob) % 4: blob.append(0)
+    j['buffers'] = [dict(byteLength=len(blob))]
+    js = json.dumps(j, separators=(',', ':')).encode(); js += b' ' * (-len(js) % 4)
+    with open(dst, 'wb') as fh:
+        fh.write(struct.pack('<III', 0x46546C67, 2, 12 + 8 + len(js) + 8 + len(blob)))
+        fh.write(struct.pack('<II', len(js), 0x4E4F534A)); fh.write(js)
+        fh.write(struct.pack('<II', len(blob), 0x004E4942)); fh.write(bytes(blob))
