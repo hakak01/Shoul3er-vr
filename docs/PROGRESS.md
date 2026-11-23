@@ -1,4 +1,5 @@
 # PROGRESS (updated 2026-11-23)
+Repo: github.com/hakak01/Shoul3er-vr (user calls it "should3r-vr"); site https://hakak01.github.io/Shoul3er-vr/ (SPEC's "shoulder-vr" URLs, e.g. kit/v1, mean this repo).
 
 ## Done
 - Phase A: assets/shoulder.glb (5.1 MB, 315 objects, 707k triangles) + manifest.json; GAPS.md, CHECKS.md.
