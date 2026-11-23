@@ -33,11 +33,13 @@ export class Anatomy {
     const info = new Map(manifest.map((e) => [e.name, e]));
     const sanitize = (s) => s.replace(/\s/g, '_').replace(/[\[\]\.:\/]/g, '');
     const bySan = new Map(manifest.map((e) => [sanitize(e.name), e]));
+    const gone = new Set(manifest.map((e) => e.replaces).filter(Boolean));   // replaced by a gaps.glb structure
     const inv = new THREE.Matrix4().copy(root.matrixWorld).invert();
     for (const node of [...gltfScene.children]) {
       const raw = node.userData.name || node.name, e = info.get(raw) || bySan.get(node.name) ||
         info.get(raw.replace(/\.\d{3}$/, ''));   // Blender duplicate suffix, e.g. 'Vertebra C4.001'
       if (!e) { console.warn('not in manifest', node.name); continue; }
+      if (gone.has(e.name)) { node.removeFromParent(); continue; }
       const s = { name: e.name, layer: e.layer, kind: e.kind || null, approx: !!e.approx, source: e.source, label: e.label,
         node, meshes: [], hidden: false, ghost: false };
       node.traverse((m) => {

@@ -1,5 +1,5 @@
-"""Numeric check of assets/gaps (no pictures): for each new structure, % of its vertices
-inside bone / inside tendon, and median clearance to them (mm). Run: python3 -I tools/check_gaps.py"""
+"""Numeric check of assets/gaps (no pictures): for each new structure, % of its vertices inside bone /
+cartilage / muscle, and the closest bone (mm). Plus a few anatomy relations. Run: python3 -I tools/check_gaps.py"""
 import os, sys, json
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'tools'))
@@ -8,45 +8,42 @@ from scipy.spatial import cKDTree
 import glbio, gapgeom as G
 from gapgeom import MM
 
-H = glbio.read(os.path.join(ROOT, 'data/raw/hand_raw.glb'))
+H = glbio.read(os.path.join(ROOT, 'data/raw/shoulder_raw.glb'))
 N = glbio.read(os.path.join(ROOT, 'data/raw/gaps_raw.glb'))
-man = {e['name']: e['layer'] for e in json.load(open(os.path.join(ROOT, 'assets/manifest.json')))}
+man = {e['name']: e for e in json.load(open(os.path.join(ROOT, 'assets/manifest.json')))}
+C = np.array(json.load(open(os.path.join(ROOT, 'assets/model.json')))['center'])
+names = lambda *L: [n for n in H if man.get(n, {}).get('layer') in L and not man[n].get('kind')]
+part = lambda n, keep=lambda m: True: G.merge([(v, f) for v, f, m in H[n] if keep(m)])
+bone = G.Solid([part(n, lambda m: 'Cartilage' not in m) for n in names('bone', 'context_bone')
+                if any('Cartilage' not in m for _, _, m in H[n])])
+cart = G.Solid([part(n, lambda m: 'Cartilage' in m) for n in names('bone') if any('Cartilage' in m for _, _, m in H[n])])
+musc = {n: G.Solid([part(n)]) for n in names('muscle')}
 
-
-def oriented(names, mat=None):
-    P, Nn = [], []
-    for n in names:
-        for v, f, m in H[n]:
-            if mat and m != mat:
-                continue
-            a, b, c = v[f[:, 0]], v[f[:, 1]], v[f[:, 2]]
-            fn = G.unit(np.cross(b - a, c - a))
-            for w in ((1 / 3, 1 / 3), (0.6, 0.2), (0.2, 0.6), (0.2, 0.2)):
-                P.append(a + w[0] * (b - a) + w[1] * (c - a)); Nn.append(fn)
-    return cKDTree(np.vstack(P)), np.vstack(Nn)
-
-
-def signed(tn, x):
-    tree, nrm = tn
-    d, i = tree.query(x)
-    s = np.einsum('ij,ij->i', x - tree.data[i], nrm[i])
-    return np.where((s < 0) & (d < 4 * MM), -d, d)     # sign is only reliable near the surface
-
-
-bone = oriented([n for n in H if man.get(n) == 'bone'])
-tend = oriented([n for n in H if man.get(n) == 'muscle'], 'Tendon')
-print('%-58s %6s %6s %7s %7s' % ('structure', 'inBone', 'inTend', 'dBone', 'dTend'))
-rows = []
+print('%-50s %6s %6s %6s %7s  %s' % ('structure', 'inBone', 'inCart', 'inMusc', 'dBone', 'muscles entered (>5%)'))
 for name, prims in N.items():
     v = prims[0][0]
     if prims[0][2] == 'Fat':
         continue
-    sb, st = signed(bone, v), signed(tend, v)
-    rows.append((name, (sb < -0.2 * MM).mean() * 100, (st < -0.2 * MM).mean() * 100,
-                 np.median(np.abs(sb)) / MM, np.median(np.abs(st)) / MM))
-for r in rows:
-    if len(sys.argv) > 1 or r[1] > 5 or r[2] > 5:
-        print('%-58s %5.0f%% %5.0f%% %6.1f %6.1f' % r)
-a = np.array([r[1:] for r in rows])
-print('all %d: mean %% in bone %.1f, in tendon %.1f; worst bone %.0f%% (%s)' % (
-    len(rows), a[:, 0].mean(), a[:, 1].mean(), a[:, 0].max(), rows[int(a[:, 0].argmax())][0]))
+    sb, sc = bone.signed(v)[0], cart.signed(v)[0]
+    inm = {m: (S.signed(v)[0] < -0.3 * MM).mean() for m, S in musc.items()}
+    anym = np.any([S.signed(v)[0] < -0.3 * MM for S in musc.values()], axis=0).mean()
+    print('%-50s %5.0f%% %5.0f%% %5.0f%% %6.1f  %s' % (name[:50], (sb < -0.2 * MM).mean() * 100, (sc < -0.2 * MM).mean() * 100,
+          anym * 100, sb.min() / MM, ', '.join('%s %.0f%%' % (m.replace(' muscle', '')[:24], p * 100)
+                                               for m, p in sorted(inm.items(), key=lambda x: -x[1]) if p > 0.05)))
+
+
+def cen(d, n):
+    return np.vstack([v for v, f, m in d[n]]).mean(0)
+
+
+ax = lambda n: np.vstack([v for v, f, m in H[n]])
+ig = np.vstack([N[n][0][0] for n in N if 'inferior glenohumeral' in n])
+print('IGHL complex <-> axillary nerve: closest %.1f mm' % (cKDTree(ax('Axillary nerve')).query(ig)[0].min() / MM))
+A = ax('Axillary artery'); A = np.array([A[i].mean(0) for i in cKDTree(A).query_ball_point(A, 4 * MM)])
+pm = ax('Pectoralis minor muscle')
+A2 = A[[((np.linalg.norm(np.cross(pm - p, [0, 0, 1.]), axis=1) < 8 * MM) & (pm[:, 2] > p[2])).any() for p in A]]
+for n in ('Lateral cord of brachial plexus', 'Medial cord of brachial plexus', 'Posterior cord of brachial plexus'):
+    P = (N if n in N else H)[n][0][0]
+    d, i = cKDTree(A2).query(P); P, d = P[d < 12 * MM], (P - A2[i])[d < 12 * MM]
+    d = np.median(d, 0) / MM if len(d) else [np.nan] * 3
+    print('%-34s vs 2nd part of axillary artery: lateral %+.0f, anterior %+.0f, up %+.0f mm (%d pts)' % (n, -d[0], d[2], d[1], len(P)))

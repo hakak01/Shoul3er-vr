@@ -1,5 +1,5 @@
-"""Geometry helpers for build_gaps.py: surface sampling, finger frames, polar envelopes,
-strips (closed thin slabs) and tubes. Units: metres in, mm used for the shape rules (MM)."""
+"""Geometry helpers for build_gaps.py: surface sampling, oriented point clouds, closed slabs,
+tubes, pushing paths out of solids. Units: metres in, mm used for the shape rules (MM)."""
 import numpy as np
 from scipy.spatial import cKDTree
 
@@ -41,125 +41,40 @@ def pca_axis(p):
     return c, V[:, -1]
 
 
-class Ray:
-    """A finger or thumb: centreline through joint centres, arc length s (m, 0 at MCP joint),
-    frame t (distal), p (palmar), r (radial). bones: list of vertex arrays, proximal->distal."""
-    def __init__(self, bones, flex_pts, radial_hint, step=0.4 * MM):
-        cs, axes, ends = [], [], []
-        for i, b in enumerate(bones):
-            c, a = pca_axis(b)
-            ref = (bones[i + 1].mean(0) - c) if i + 1 < len(bones) else (c - bones[i - 1].mean(0))
-            a = a if a @ ref > 0 else -a
-            pr = (b - c) @ a
-            cs.append(c); axes.append(a); ends.append((c + a * pr.min(), c + a * pr.max()))
-        joints = [(ends[i][1] + ends[i + 1][0]) / 2 for i in range(len(bones) - 1)]
-        nodes = [cs[0] - axes[0] * 0.0] + joints + [ends[-1][1]]
-        seg = np.linalg.norm(np.diff(nodes, axis=0), axis=1)
-        cum = np.concatenate([[0], np.cumsum(seg)])
-        s = np.arange(cum[0] - 6 * MM, cum[-1] + 2 * MM, step)
-        P = np.array([np.interp(s, cum, [n[k] for n in nodes]) for k in range(3)]).T
-        # extrapolate linearly beyond the ends
-        for sel, i0, i1 in ((s < cum[0], 0, 1), (s > cum[-1], -2, -1)):
-            d = unit(nodes[i1] - nodes[i0]); base = cum[0] if i0 == 0 else cum[-1]
-            P[sel] = nodes[0 if i0 == 0 else -1] + np.outer(s[sel] - base, d)
-        self.c = smooth1d(P, 2.5 * MM / step)
-        self.t = unit(smooth1d(np.gradient(self.c, axis=0), 3 * MM / step))
-        self.s = s - cum[1]                     # 0 at MCP joint
-        self.joint_s = cum[1:-1] - cum[1]       # MCP, PIP(, DIP)
-        self.tip_s = cum[-1] - cum[1]
-        self.step = step
-        # palmar direction: from axis towards the flexor tendons near each sample
-        p = np.zeros_like(self.c)
-        tree = cKDTree(flex_pts)
-        for i in range(len(s)):
-            idx = tree.query_ball_point(self.c[i], 11 * MM)
-            if len(idx) > 5:
-                d = flex_pts[idx] - self.c[i]
-                d -= np.outer(d @ self.t[i], self.t[i])
-                p[i] = unit(d.mean(0))
-        ok = np.linalg.norm(p, axis=1) > 0.5
-        for k in range(3):
-            p[:, k] = np.interp(np.arange(len(s)), np.nonzero(ok)[0], p[ok, k])
-        p = smooth1d(p, 4 * MM / step)
-        p = unit(p - (p * self.t).sum(1, keepdims=True) * self.t)
-        r = np.cross(self.t, p)
-        if (r.mean(0) @ radial_hint) < 0:
-            r = -r
-        self.p, self.r = p, r
+class Solid:
+    """Oriented surface samples of closed meshes: signed distance (negative inside, reliable near the surface)."""
+    def __init__(self, parts, spacing=0.8 * MM):
+        P, N = [], []
+        for v, f in parts:
+            a, b, c = v[f[:, 0]], v[f[:, 1]], v[f[:, 2]]
+            fn = unit(np.cross(b - a, c - a))
+            for w in ((1 / 3, 1 / 3), (0.6, 0.2), (0.2, 0.6), (0.2, 0.2)):
+                P.append(a + w[0] * (b - a) + w[1] * (c - a)); N.append(fn)
+        self.tree, self.n = cKDTree(np.vstack(P)), np.vstack(N)
 
-    def idx(self, s):
-        return np.clip((np.asarray(s) - self.s[0]) / self.step, 0, len(self.s) - 1.001)
+    def signed(self, x):
+        d, i = self.tree.query(x, k=4)
+        s = np.einsum('ikj,ikj->ik', x[:, None] - self.tree.data[i], self.n[i]).mean(1)
+        return np.where((s < 0) & (d[:, 0] < 6 * MM), -d[:, 0], d[:, 0]), self.n[i[:, 0]]
 
-    def frame(self, s):
-        i = self.idx(s); i0 = np.floor(i).astype(int); w = (i - i0)[..., None]
-        lerp = lambda A: A[i0] * (1 - w) + A[i0 + 1] * w
-        return lerp(self.c), unit(lerp(self.t)), unit(lerp(self.p)), unit(lerp(self.r))
-
-    def assign(self, pts):
-        """distance from each point to this centreline (for splitting shared meshes)."""
-        return cKDTree(self.c).query(pts)[0]
-
-    def envelope(self, pts, nb=48, half=0.8 * MM, rmax=14 * MM, hull=1.5 * MM):
-        """R[i, bin]: outermost radius of pts around the centreline, per sample and angle bin."""
-        R = np.full((len(self.s), nb), np.nan)
-        tree = cKDTree(pts)
-        for i in range(len(self.s)):
-            idx = tree.query_ball_point(self.c[i], rmax)
-            if not idx:
-                continue
-            d = pts[idx] - self.c[i]
-            ax = d @ self.t[i]
-            m = np.abs(ax) < half
-            if m.sum() < 3:
-                continue
-            x, y = d[m] @ self.r[i], d[m] @ self.p[i]
-            b = (np.round(np.arctan2(y, x) / (2 * np.pi) * nb) % nb).astype(int)
-            rho = np.hypot(x, y)
-            for bb in range(nb):
-                sel = rho[b == bb]
-                if len(sel):
-                    R[i, bb] = sel.max()
-        for i in range(len(R)):                          # fill empty angle bins
-            ok = ~np.isnan(R[i])
-            if ok.sum() >= 3:
-                xs = np.nonzero(ok)[0]
-                R[i] = np.interp(np.arange(nb), xs, R[i, ok], period=nb)
-        for bb in range(nb):                             # fill empty samples
-            ok = ~np.isnan(R[:, bb])
-            R[:, bb] = np.interp(np.arange(len(R)), np.nonzero(ok)[0], R[ok, bb]) if ok.any() else 3 * MM
-        k = max(1, int(hull / self.step))                # bridge joint gaps / grooves
-        R = np.max([np.roll(np.pad(R, ((k, k), (0, 0)), mode='edge'), j, 0)[k:-k] for j in range(-k, k + 1)], 0)
-        R = np.max([np.roll(R, j, 1) for j in (-1, 0, 1)], 0)
-        R = smooth1d(smooth1d(R, 1.0 * MM / self.step, 0), 1.0, 1, wrap=True)
-        return R
-
-    def radius(self, R, s, phi):
-        nb = R.shape[1]
-        i = self.idx(s); i0 = np.floor(i).astype(int); wi = i - i0
-        b = (np.asarray(phi) / (2 * np.pi) * nb) % nb; b0 = np.floor(b).astype(int); wb = b - b0; b1 = (b0 + 1) % nb
-        return ((R[i0, b0] * (1 - wb) + R[i0, b1] * wb) * (1 - wi) +
-                (R[i0 + 1, b0] * (1 - wb) + R[i0 + 1, b1] * wb) * wi)
-
-    def point(self, s, phi, rad):
-        c, t, p, r = self.frame(s)
-        return c + rad[..., None] * (np.cos(phi)[..., None] * r + np.sin(phi)[..., None] * p)
-
-    def strip(self, R, s_of_u, phi_of_u, width, offset=0.3 * MM, thick=0.6 * MM, nu=40, nv=7):
-        """Thin closed band lying on envelope R. Path (s(u), phi(u)) for u in [0,1];
-        width (m, may be a function of u) across the path; thick may be a function of (u, v)."""
-        u = np.linspace(0, 1, nu); v = np.linspace(-0.5, 0.5, nv)
-        S, PH = np.asarray(s_of_u(u), float) * np.ones(nu), np.asarray(phi_of_u(u), float) * np.ones(nu)
-        R0 = self.radius(R, S, PH)
-        dS, dA = np.gradient(S), np.gradient(PH) * R0
-        n = np.hypot(dS, dA) + 1e-12
-        ns, na = -dA / n, dS / n
-        W = np.asarray(width(u) if callable(width) else width * np.ones(nu))
-        SS = S[:, None] + v[None] * (W * ns)[:, None]
-        PP = PH[:, None] + v[None] * (W * na / R0)[:, None]
-        TH = thick(u[:, None], v[None]) if callable(thick) else thick * np.ones((nu, nv))
-        rin = self.radius(R, SS, PP) + offset
-        rin = smooth1d(smooth1d(rin, 1.0, 0), 0.7, 1)
-        return slab(self.point(SS, PP, rin), self.point(SS, PP, rin + TH))
+    def push_out(self, path, clear, iters=12, keep_ends=True):
+        """Move path points to at least `clear` outside the surface (ends fixed if keep_ends)."""
+        path = path.copy()
+        for _ in range(iters):
+            d, n = self.signed(path)
+            m = d < clear
+            if keep_ends:
+                m[[0, -1]] = False
+            if not m.any():
+                break
+            path[m] += n[m] * (clear - d[m])[:, None]
+            path = np.vstack([path[:1], smooth1d(path, 1.5)[1:-1], path[-1:]])
+        d, n = self.signed(path)                              # last pass without smoothing
+        m = d < clear
+        if keep_ends:
+            m[[0, -1]] = False
+        path[m] += n[m] * (clear - d[m])[:, None]
+        return path
 
 
 def slab(A, B):

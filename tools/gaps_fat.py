@@ -7,20 +7,24 @@ import gapgeom as G
 import glbio
 from gapgeom import MM
 
-GROUPS = {
-    'Subcutaneous fat of hand and fingers': ['Palm', 'Dorsum of hand', 'Dorsal surfaces of digits of hand',
-                                             'Palmar surfaces of digits of hand'],
-    'Subcutaneous fat of wrist and forearm': ['Anterior region of wrist', 'Posterior region of wrist',
-                                              'Anterior region of forearm', 'Posterior region of forearm',
-                                              'Lateral border of forearm', 'Medial border of forearm', 'Radial foveola'],
+GROUPS = {   # name: (skin regions, max thickness). Thicker over the deltoid and in the axilla (SPEC Phase C).
+    'Subcutaneous fat of deltoid region': (['Deltoid region'], 15 * MM),
+    'Subcutaneous fat of axilla and lateral thorax': (['Lateral region of thorax'], 25 * MM),
+    'Subcutaneous fat of pectoral region': (['Pectoral region', 'Deltopectoral triangle', 'Infraclavicular fossa'], 6 * MM),
+    'Subcutaneous fat of neck and supraclavicular fossae': (['Greater supraclavicular fossa', 'Lesser supraclavicular fossa',
+                                                             'Lateral region of neck', 'Posterior region of neck'], 6 * MM),
+    'Subcutaneous fat of back': (['Scapular region', 'Interscapular region', 'Infrascapular region',
+                                  'Triangle of auscultation'], 6 * MM),
+    'Subcutaneous fat of arm': (['Anterior region of arm', 'Posterior region of arm', 'Lateral bicipital groove',
+                                 'Medial bicipital groove'], 6 * MM),
 }
-SKIP = {'Nail plate', 'Perionyx'}
+SKIP = set()
 GAP_SKIN = 0.1 * MM          # fat starts just under the skin
 GAP_DEEP = 0.4 * MM          # and stops just short of the deep structures
-TMIN, TMAX = 0.3 * MM, 10 * MM
+TMIN = 0.3 * MM
 
 
-def shell(v, f, outer, deep_tree):
+def shell(v, f, outer, deep_tree, TMAX):
     """v, f: inner surface of a skin region (material 'Skin-in'); outer: points of its outer surface.
     Inwards = away from the outer skin surface."""
     a, b, c = v[f[:, 0]], v[f[:, 1]], v[f[:, 2]]
@@ -82,16 +86,16 @@ def build(get, mats, skin_names, deep_pts):
     tree = cKDTree(deep_pts)
     skin = [n for n in skin_names if n not in SKIP]
     groups = dict(GROUPS)
-    taken = {x for g in GROUPS.values() for x in g}
-    groups['Subcutaneous fat of elbow and arm'] = [n for n in skin if n not in taken]
+    taken = {x for g, _ in GROUPS.values() for x in g}
+    groups['Subcutaneous fat of elbow'] = ([n for n in skin if n not in taken], 6 * MM)
     out, stats = [], {}
-    for name, regions in groups.items():
+    for name, (regions, tmax) in groups.items():
         parts = []
         for rn in regions:
             if rn not in skin:
                 continue
             inner, outer = split_inner(get, mats(rn), rn, tree)
-            V, F, t = shell(*inner, outer, tree)
+            V, F, t = shell(*inner, outer, tree, tmax)
             parts.append((V, F)); stats[rn] = (np.median(t) / MM, t.max() / MM)
         if parts:
             out.append(dict(name=name, layer='fat', mat='Fat', mesh=G.merge(parts),

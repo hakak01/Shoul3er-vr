@@ -13,4 +13,5 @@ Landmarks are automatic: lateral acromion edge = most lateral scapula point abov
 | 5b | Infraspinatus footprint | 20.5 × 15.1 mm (fill 0.86); 3 mm posterior of head centre | 10.2 × 32.7 mm, trapezoidal, wraps anteriorly to the SSP | **BIG DIFFERENCE**: AP length ~60% of reference, ML ~1.5× |
 
 Footprint sizes are the two longest extents of each patch (principal axes); they are approximate on the curved tuberosity.
-Suggestions for later (your decision): reroute the MCN through coracobrachialis (Phase C gap, approx:true); reshape the SSP/ISP footprints to Mochizuki (affects the rotator cable).
+Phase C: an approximate "Musculocutaneous nerve (proximal part)" now runs lateral cord → coracobrachialis, entering 56 mm below the coracoid tip (built to Flatow's mean, so not an independent check); the Z-Anatomy nerve below it is unchanged.
+Suggestions for later (your decision): reshape the SSP/ISP footprints to Mochizuki (affects the rotator cable).
