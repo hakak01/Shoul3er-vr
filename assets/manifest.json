@@ -1,0 +1,2280 @@
+[
+ {
+  "name": "Abdominal part of pectoralis major muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 132,
+  "kind": "origin"
+ },
+ {
+  "name": "Abdominal part of pectoralis major muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1054
+ },
+ {
+  "name": "Deep branch of transverse cervical artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1440
+ },
+ {
+  "name": "Superficial branch of transverse cervical artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 528
+ },
+ {
+  "name": "Ulnar recurrent artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 96
+ },
+ {
+  "name": "Accessory nerve (XI)",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2616
+ },
+ {
+  "name": "Acromial part of deltoid muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 414,
+  "kind": "origin"
+ },
+ {
+  "name": "Acromial part of deltoid muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2964
+ },
+ {
+  "name": "Acromioclavicular ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 320
+ },
+ {
+  "name": "Anconeus muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 432,
+  "kind": "insertion"
+ },
+ {
+  "name": "Anconeus muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 524,
+  "kind": "origin"
+ },
+ {
+  "name": "Anconeus muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1442
+ },
+ {
+  "name": "Annular ligament of radius",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 376
+ },
+ {
+  "name": "Antebrachial fascia",
+  "layer": "fascia_retinacula",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 4460
+ },
+ {
+  "name": "Anterior axillary nodes",
+  "layer": "lymph_node",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1008
+ },
+ {
+  "name": "Anterior branch of medial antebrachial cutaneous nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 240
+ },
+ {
+  "name": "Anterior circumflex humeral artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 432
+ },
+ {
+  "name": "Anterior circumflex humeral vein",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 624
+ },
+ {
+  "name": "Anterior division of inferior trunk of brachial plexus",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 96
+ },
+ {
+  "name": "Anterior division of middle trunk of brachial plexus",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 48
+ },
+ {
+  "name": "Anterior division of superior trunk of brachial plexus",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 48
+ },
+ {
+  "name": "Anterior interosseous nerve of forearm",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 240
+ },
+ {
+  "name": "Anterior region of arm",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1028
+ },
+ {
+  "name": "Anterior region of elbow",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 428
+ },
+ {
+  "name": "Anterior sternoclavicular ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 320
+ },
+ {
+  "name": "Apical axillary nodes",
+  "layer": "lymph_node",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 336
+ },
+ {
+  "name": "Articular capsule of acromioclavicular joint",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1152
+ },
+ {
+  "name": "Articular capsule of elbow joint",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1728
+ },
+ {
+  "name": "Articular capsule of glenohumeral joint",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 3232
+ },
+ {
+  "name": "Articular capsule of sternoclavicular joint",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1008
+ },
+ {
+  "name": "Articular disc of acromioclavicular joint",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 176
+ },
+ {
+  "name": "Articular disc of sternoclavicular joint",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 176
+ },
+ {
+  "name": "Ascending part of trapezius muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 182,
+  "kind": "insertion"
+ },
+ {
+  "name": "Ascending part of trapezius muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 348,
+  "kind": "origin"
+ },
+ {
+  "name": "Ascending part of trapezius muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 4596
+ },
+ {
+  "name": "Axillary artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 192
+ },
+ {
+  "name": "Axillary nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 192
+ },
+ {
+  "name": "Axillary vein",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 288
+ },
+ {
+  "name": "Basilic vein",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 720
+ },
+ {
+  "name": "Biceps brachii muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 420,
+  "kind": "insertion"
+ },
+ {
+  "name": "Bicipitoradial bursa",
+  "layer": "bursa",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1472
+ },
+ {
+  "name": "Body of sternum",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 4462
+ },
+ {
+  "name": "Brachial artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 480
+ },
+ {
+  "name": "Brachial fascia",
+  "layer": "fascia_retinacula",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 3018
+ },
+ {
+  "name": "Brachial nodes",
+  "layer": "lymph_node",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 840
+ },
+ {
+  "name": "Brachial veins",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 384
+ },
+ {
+  "name": "Brachialis muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1020,
+  "kind": "insertion"
+ },
+ {
+  "name": "Brachialis muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1012,
+  "kind": "origin"
+ },
+ {
+  "name": "Brachialis muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 3478
+ },
+ {
+  "name": "Brachioradialis muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 504,
+  "kind": "origin"
+ },
+ {
+  "name": "Brachioradialis muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 7312
+ },
+ {
+  "name": "Central axillary nodes",
+  "layer": "lymph_node",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 336
+ },
+ {
+  "name": "Cephalic vein",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1152
+ },
+ {
+  "name": "Circumflex scapular artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 192
+ },
+ {
+  "name": "Circumflex scapular vein",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 240
+ },
+ {
+  "name": "Clavicle",
+  "layer": "bone",
+  "source": "BodyParts3D (ICP-fitted to Z-Anatomy)",
+  "approx": false,
+  "triangles": 5112
+ },
+ {
+  "name": "Clavicular head of pectoralis major muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 850
+ },
+ {
+  "name": "Clavicular part of deltoid muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 192,
+  "kind": "origin"
+ },
+ {
+  "name": "Clavicular part of deltoid muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2902
+ },
+ {
+  "name": "Clavipectoral fascia",
+  "layer": "fascia_retinacula",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1280
+ },
+ {
+  "name": "Common extensor tendon (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 656,
+  "kind": "origin"
+ },
+ {
+  "name": "Common flexor tendon (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 688,
+  "kind": "origin"
+ },
+ {
+  "name": "Common interosseous artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 48
+ },
+ {
+  "name": "Conoid ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 56
+ },
+ {
+  "name": "Coraco-acromial ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 12
+ },
+ {
+  "name": "Coracobrachial bursa",
+  "layer": "bursa",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1472
+ },
+ {
+  "name": "Coracobrachialis muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 174,
+  "kind": "origin"
+ },
+ {
+  "name": "Coracobrachialis muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1160
+ },
+ {
+  "name": "Coracohumeral ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 200
+ },
+ {
+  "name": "Costal cartilage of eighth rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2624
+ },
+ {
+  "name": "Costal cartilage of fifth rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 6492
+ },
+ {
+  "name": "Costal cartilage of first rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2772
+ },
+ {
+  "name": "Costal cartilage of fourth rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 4472
+ },
+ {
+  "name": "Costal cartilage of second rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 3408
+ },
+ {
+  "name": "Costal cartilage of seventh rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 13764
+ },
+ {
+  "name": "Costal cartilage of sixth rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 8118
+ },
+ {
+  "name": "Costal cartilage of third rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 3600
+ },
+ {
+  "name": "Costoclavicular ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 12
+ },
+ {
+  "name": "Cubital fossa",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 136
+ },
+ {
+  "name": "Cubital nodes",
+  "layer": "lymph_node",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1008
+ },
+ {
+  "name": "Deep brachial artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 144
+ },
+ {
+  "name": "Deep branch of radial nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 336
+ },
+ {
+  "name": "Deep head of pronator teres",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1114
+ },
+ {
+  "name": "Deltoid fascia",
+  "layer": "fascia_retinacula",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 3541
+ },
+ {
+  "name": "Deltoid muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 588,
+  "kind": "insertion"
+ },
+ {
+  "name": "Deltoid region",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 624
+ },
+ {
+  "name": "Deltopectoral triangle",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 88
+ },
+ {
+  "name": "Descending part of trapezius muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 218,
+  "kind": "origin"
+ },
+ {
+  "name": "Descending part of trapezius muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 6760
+ },
+ {
+  "name": "Dorsal scapular nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 432
+ },
+ {
+  "name": "Eighth rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 8270
+ },
+ {
+  "name": "Extensor carpi radialis brevis",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 3142
+ },
+ {
+  "name": "Extensor carpi radialis longus",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 3706
+ },
+ {
+  "name": "Extensor digiti minimi",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2152
+ },
+ {
+  "name": "Extensor digitorum",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 6410
+ },
+ {
+  "name": "Fifth rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 9376
+ },
+ {
+  "name": "First rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 3210
+ },
+ {
+  "name": "Flexor carpi radialis",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1666
+ },
+ {
+  "name": "Flexor digitorum profundus",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 7110
+ },
+ {
+  "name": "Fourth rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 8646
+ },
+ {
+  "name": "Glenoid labrum",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 848
+ },
+ {
+  "name": "Greater supraclavicular fossa",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 200
+ },
+ {
+  "name": "Humeral head of extensor carpi ulnaris",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 830
+ },
+ {
+  "name": "Humeral head of flexor carpi ulnaris",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 3912
+ },
+ {
+  "name": "Humero-ulnar head of flexor digitorum superficialis",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 12798
+ },
+ {
+  "name": "Humerus",
+  "layer": "bone",
+  "source": "BodyParts3D (ICP-fitted to Z-Anatomy)",
+  "approx": false,
+  "triangles": 16268
+ },
+ {
+  "name": "Inferior glenohumeral ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 320
+ },
+ {
+  "name": "Inferior lateral brachial cutaneous nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 96
+ },
+ {
+  "name": "Inferior subscapular nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 336
+ },
+ {
+  "name": "Inferior transverse scapular ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 12
+ },
+ {
+  "name": "Inferior trunk of brachial plexus",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 96
+ },
+ {
+  "name": "Inferior ulnar collateral artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 240
+ },
+ {
+  "name": "Infraclavicular fossa",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 212
+ },
+ {
+  "name": "Infraclavicular nodes",
+  "layer": "lymph_node",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 840
+ },
+ {
+  "name": "Infrascapular region",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 480
+ },
+ {
+  "name": "Infraspinatus muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1244,
+  "kind": "insertion"
+ },
+ {
+  "name": "Infraspinatus muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 806,
+  "kind": "origin"
+ },
+ {
+  "name": "Infraspinatus muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 3166
+ },
+ {
+  "name": "Interclavicular ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 80
+ },
+ {
+  "name": "Interpectoral nodes",
+  "layer": "lymph_node",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 840
+ },
+ {
+  "name": "Interscapular region",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 268
+ },
+ {
+  "name": "Intertubercular tendon sheath",
+  "layer": "tendon_sheath",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 832
+ },
+ {
+  "name": "Lateral antebrachial cutaneous nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 288
+ },
+ {
+  "name": "Lateral axillary nodes",
+  "layer": "lymph_node",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 336
+ },
+ {
+  "name": "Lateral bicipital groove",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 100
+ },
+ {
+  "name": "Lateral femoral cutaneous nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 768
+ },
+ {
+  "name": "Lateral head of triceps brachii (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1152,
+  "kind": "origin"
+ },
+ {
+  "name": "Lateral head of triceps brachii",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 3628
+ },
+ {
+  "name": "Lateral intermuscular septum of arm",
+  "layer": "fascia_retinacula",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 160
+ },
+ {
+  "name": "Lateral pectoral nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1200
+ },
+ {
+  "name": "Lateral region of neck",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 460
+ },
+ {
+  "name": "Lateral region of thorax",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 788
+ },
+ {
+  "name": "Lateral thoracic artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 480
+ },
+ {
+  "name": "Lateral thoracic vein",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1680
+ },
+ {
+  "name": "Latissimus dorsi muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 196,
+  "kind": "insertion"
+ },
+ {
+  "name": "Latissimus dorsi muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 354,
+  "kind": "origin"
+ },
+ {
+  "name": "Latissimus dorsi muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 21580
+ },
+ {
+  "name": "Lesser supraclavicular fossa",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 48
+ },
+ {
+  "name": "Levator scapulae (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 678,
+  "kind": "insertion"
+ },
+ {
+  "name": "Levator scapulae (origin 1)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 8,
+  "kind": "origin"
+ },
+ {
+  "name": "Levator scapulae (origin 2)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 26,
+  "kind": "origin"
+ },
+ {
+  "name": "Levator scapulae (origin 3)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 26,
+  "kind": "origin"
+ },
+ {
+  "name": "Levator scapulae (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 14,
+  "kind": "origin"
+ },
+ {
+  "name": "Levator scapulae",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2156
+ },
+ {
+  "name": "Long head of biceps brachii (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1216,
+  "kind": "origin"
+ },
+ {
+  "name": "Long head of biceps brachii",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 3218
+ },
+ {
+  "name": "Long head of triceps brachii (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1492,
+  "kind": "origin"
+ },
+ {
+  "name": "Long head of triceps brachii",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 3950
+ },
+ {
+  "name": "Long thoracic nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 672
+ },
+ {
+  "name": "Manubrium of sternum",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2662
+ },
+ {
+  "name": "Medial antebrachial cutaneous nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 288
+ },
+ {
+  "name": "Medial bicipital groove",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 76
+ },
+ {
+  "name": "Medial brachial cutaneous nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 288
+ },
+ {
+  "name": "Medial head of triceps brachii (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 538,
+  "kind": "origin"
+ },
+ {
+  "name": "Medial head of triceps brachii",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2686
+ },
+ {
+  "name": "Medial intermuscular septum of arm",
+  "layer": "fascia_retinacula",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 312
+ },
+ {
+  "name": "Medial pectoral nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 336
+ },
+ {
+  "name": "Median antebrachial vein",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 864
+ },
+ {
+  "name": "Median cubital vein",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 288
+ },
+ {
+  "name": "Median nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 864
+ },
+ {
+  "name": "Middle collateral artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 144
+ },
+ {
+  "name": "Middle glenohumeral ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 280
+ },
+ {
+  "name": "Middle trunk of brachial plexus",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 48
+ },
+ {
+  "name": "Muscular branches of axillary nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 192
+ },
+ {
+  "name": "Muscular branches of median nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 192
+ },
+ {
+  "name": "Muscular branches of radial nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 432
+ },
+ {
+  "name": "Muscular branches of ulnar nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 96
+ },
+ {
+  "name": "Musculocutaneous nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 240
+ },
+ {
+  "name": "Omohyoid muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 260,
+  "kind": "insertion"
+ },
+ {
+  "name": "Omohyoid muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1036,
+  "kind": "origin"
+ },
+ {
+  "name": "Omohyoid muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2706
+ },
+ {
+  "name": "Palmaris longus muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 4372
+ },
+ {
+  "name": "Pectoral branches of thoraco-acromial artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 288
+ },
+ {
+  "name": "Pectoral fascia",
+  "layer": "fascia_retinacula",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2709
+ },
+ {
+  "name": "Pectoral region",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 516
+ },
+ {
+  "name": "Pectoralis major muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 182,
+  "kind": "insertion"
+ },
+ {
+  "name": "Pectoralis major muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 242,
+  "kind": "origin"
+ },
+ {
+  "name": "Pectoralis minor muscle (insertion 1)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 152,
+  "kind": "insertion"
+ },
+ {
+  "name": "Pectoralis minor muscle (insertion 2)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 112,
+  "kind": "insertion"
+ },
+ {
+  "name": "Pectoralis minor muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 226,
+  "kind": "insertion"
+ },
+ {
+  "name": "Pectoralis minor muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 286,
+  "kind": "origin"
+ },
+ {
+  "name": "Pectoralis minor muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 4142
+ },
+ {
+  "name": "Posterior antebrachial cutaneous nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 432
+ },
+ {
+  "name": "Posterior axillary nodes",
+  "layer": "lymph_node",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1008
+ },
+ {
+  "name": "Posterior branch of medial antebrachial cutaneous nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 384
+ },
+ {
+  "name": "Posterior circumflex humeral artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 192
+ },
+ {
+  "name": "Posterior cord of brachial plexus",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 96
+ },
+ {
+  "name": "Posterior division of inferior trunk of brachial plexus",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 48
+ },
+ {
+  "name": "Posterior division of middle trunk of brachial plexus",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 48
+ },
+ {
+  "name": "Posterior division of superior trunk of brachial plexus",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 48
+ },
+ {
+  "name": "Posterior interosseous nerve of forearm",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 288
+ },
+ {
+  "name": "Posterior region of arm",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 912
+ },
+ {
+  "name": "Posterior region of elbow",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 480
+ },
+ {
+  "name": "Posterior region of neck",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 684
+ },
+ {
+  "name": "Posterior sternoclavicular ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 136
+ },
+ {
+  "name": "Quadrate ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 12
+ },
+ {
+  "name": "Radial artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 528
+ },
+ {
+  "name": "Radial collateral artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 432
+ },
+ {
+  "name": "Radial collateral ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 96
+ },
+ {
+  "name": "Radial nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 384
+ },
+ {
+  "name": "Posterior circumflex humeral vein",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 336
+ },
+ {
+  "name": "Rhomboid major muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 4800
+ },
+ {
+  "name": "Rhomboid minor muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1494
+ },
+ {
+  "name": "Right subclavian artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 144
+ },
+ {
+  "name": "Scalenus anterior muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1386
+ },
+ {
+  "name": "Scalenus medius muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2078
+ },
+ {
+  "name": "Scalenus posterior muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1326
+ },
+ {
+  "name": "Second rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 5364
+ },
+ {
+  "name": "Serratus anterior muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 25240
+ },
+ {
+  "name": "Short head of biceps brachii",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2696
+ },
+ {
+  "name": "Posterior interosseous artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 192
+ },
+ {
+  "name": "Pronator teres (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 320,
+  "kind": "origin"
+ },
+ {
+  "name": "Radial veins",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 384
+ },
+ {
+  "name": "Radius",
+  "layer": "bone",
+  "source": "BodyParts3D (ICP-fitted to Z-Anatomy)",
+  "approx": false,
+  "triangles": 2804
+ },
+ {
+  "name": "Recurrent interosseous artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 288
+ },
+ {
+  "name": "Rhomboid major muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 952,
+  "kind": "insertion"
+ },
+ {
+  "name": "Rhomboid minor muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 280,
+  "kind": "insertion"
+ },
+ {
+  "name": "Right subclavian vein",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 144
+ },
+ {
+  "name": "Roots of brachial plexus",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 768
+ },
+ {
+  "name": "Scalenus anterior muscle (insertion 1)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 296,
+  "kind": "insertion"
+ },
+ {
+  "name": "Scalenus anterior muscle (insertion 2)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 184,
+  "kind": "insertion"
+ },
+ {
+  "name": "Scalenus anterior muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 392,
+  "kind": "insertion"
+ },
+ {
+  "name": "Scalenus anterior muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1048,
+  "kind": "origin"
+ },
+ {
+  "name": "Scalenus medius muscle (insertion 1)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 420,
+  "kind": "insertion"
+ },
+ {
+  "name": "Scalenus medius muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 572,
+  "kind": "insertion"
+ },
+ {
+  "name": "Scalenus medius muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1384,
+  "kind": "origin"
+ },
+ {
+  "name": "Scalenus posterior muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 600,
+  "kind": "insertion"
+ },
+ {
+  "name": "Scapula",
+  "layer": "bone",
+  "source": "BodyParts3D (ICP-fitted to Z-Anatomy)",
+  "approx": false,
+  "triangles": 113256
+ },
+ {
+  "name": "Scapular region",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 676
+ },
+ {
+  "name": "Scapular spinal part of deltoid muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 702,
+  "kind": "origin"
+ },
+ {
+  "name": "Scapular spinal part of deltoid muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 4378
+ },
+ {
+  "name": "Serratus anterior muscle (insertion 2)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 260,
+  "kind": "insertion"
+ },
+ {
+  "name": "Serratus anterior muscle (insertion 3)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 248,
+  "kind": "insertion"
+ },
+ {
+  "name": "Serratus anterior muscle (insertion 4)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 172,
+  "kind": "insertion"
+ },
+ {
+  "name": "Serratus anterior muscle (insertion 5)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 120,
+  "kind": "insertion"
+ },
+ {
+  "name": "Serratus anterior muscle (insertion 6)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 168,
+  "kind": "insertion"
+ },
+ {
+  "name": "Serratus anterior muscle (insertion 7)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 184,
+  "kind": "insertion"
+ },
+ {
+  "name": "Serratus anterior muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 108,
+  "kind": "insertion"
+ },
+ {
+  "name": "Serratus anterior muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 300,
+  "kind": "origin"
+ },
+ {
+  "name": "Seventh rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 9776
+ },
+ {
+  "name": "Sixth rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 10132
+ },
+ {
+  "name": "Sternocostal head of pectoralis major muscle (insertion 1)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1194,
+  "kind": "insertion"
+ },
+ {
+  "name": "Sternocostal head of pectoralis major muscle (insertion 2)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 348,
+  "kind": "insertion"
+ },
+ {
+  "name": "Sternocostal head of pectoralis major muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 362,
+  "kind": "insertion"
+ },
+ {
+  "name": "Sternocostal head of pectoralis major muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 3222
+ },
+ {
+  "name": "Subacromial bursa",
+  "layer": "bursa",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1472
+ },
+ {
+  "name": "Subclavian nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 144
+ },
+ {
+  "name": "Subclavius muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 828,
+  "kind": "origin"
+ },
+ {
+  "name": "Subclavius muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 794
+ },
+ {
+  "name": "Subcutaneous acromial bursa",
+  "layer": "bursa",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1472
+ },
+ {
+  "name": "Subdeltoid bursa",
+  "layer": "bursa",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1472
+ },
+ {
+  "name": "Subscapular artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 48
+ },
+ {
+  "name": "Subscapular vein",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 288
+ },
+ {
+  "name": "Subscapularis muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 496,
+  "kind": "insertion"
+ },
+ {
+  "name": "Subscapularis muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1020,
+  "kind": "origin"
+ },
+ {
+  "name": "Subscapularis muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2952
+ },
+ {
+  "name": "Subtendinous bursa of infraspinatus muscle",
+  "layer": "bursa",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1472
+ },
+ {
+  "name": "Subtendinous bursa of teres major muscle",
+  "layer": "bursa",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1472
+ },
+ {
+  "name": "Subtendinous bursa of trapezius muscle",
+  "layer": "bursa",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 146
+ },
+ {
+  "name": "Subtendinous bursa of triceps brachii muscle",
+  "layer": "bursa",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1472
+ },
+ {
+  "name": "Superficial branch of radial nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 720
+ },
+ {
+  "name": "Superficial head of pronator teres",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2546
+ },
+ {
+  "name": "Superior glenohumeral ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 200
+ },
+ {
+  "name": "Superior lateral brachial cutaneous nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 336
+ },
+ {
+  "name": "Superior subscapular nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 192
+ },
+ {
+  "name": "Superior transverse scapular ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 12
+ },
+ {
+  "name": "Superior trunk of brachial plexus",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 48
+ },
+ {
+  "name": "Superior ulnar collateral artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 288
+ },
+ {
+  "name": "Supinator (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1320,
+  "kind": "insertion"
+ },
+ {
+  "name": "Supinator (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 484,
+  "kind": "origin"
+ },
+ {
+  "name": "Supinator",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2754
+ },
+ {
+  "name": "Suprascapular artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 528
+ },
+ {
+  "name": "Suprascapular nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 816
+ },
+ {
+  "name": "Suprascapular vein",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 432
+ },
+ {
+  "name": "Supraspinatus muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1348,
+  "kind": "insertion"
+ },
+ {
+  "name": "Supraspinatus muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 798,
+  "kind": "origin"
+ },
+ {
+  "name": "Supraspinatus muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1430
+ },
+ {
+  "name": "Teres major muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 284,
+  "kind": "origin"
+ },
+ {
+  "name": "Teres major muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1154
+ },
+ {
+  "name": "Teres minor muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 182,
+  "kind": "insertion"
+ },
+ {
+  "name": "Teres minor muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 338,
+  "kind": "origin"
+ },
+ {
+  "name": "Teres minor muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1522
+ },
+ {
+  "name": "Third rib",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 6980
+ },
+ {
+  "name": "Thoraco-acromial artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 48
+ },
+ {
+  "name": "Thoracodorsal artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 240
+ },
+ {
+  "name": "Thoracodorsal nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 768
+ },
+ {
+  "name": "Thoracodorsal vein",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 336
+ },
+ {
+  "name": "Thyrocervical trunk",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 48
+ },
+ {
+  "name": "Transverse cervical artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 528
+ },
+ {
+  "name": "Transverse humeral ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 464
+ },
+ {
+  "name": "Transverse part of trapezius muscle (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 182,
+  "kind": "origin"
+ },
+ {
+  "name": "Transverse part of trapezius muscle",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2992
+ },
+ {
+  "name": "Trapezoid ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 56
+ },
+ {
+  "name": "Triangle of auscultation",
+  "layer": "skin",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 20
+ },
+ {
+  "name": "Triceps brachii muscle (insertion)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 904,
+  "kind": "insertion"
+ },
+ {
+  "name": "Ulna",
+  "layer": "bone",
+  "source": "BodyParts3D (ICP-fitted to Z-Anatomy)",
+  "approx": false,
+  "triangles": 3592
+ },
+ {
+  "name": "Ulnar artery",
+  "layer": "artery",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 336
+ },
+ {
+  "name": "Ulnar collateral ligament",
+  "layer": "ligament_capsule",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 152
+ },
+ {
+  "name": "Ulnar head of flexor carpi ulnaris (origin)",
+  "layer": "attachment",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1200,
+  "kind": "origin"
+ },
+ {
+  "name": "Ulnar head of flexor carpi ulnaris",
+  "layer": "muscle",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1466
+ },
+ {
+  "name": "Ulnar nerve",
+  "layer": "nerve",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 528
+ },
+ {
+  "name": "Ulnar veins",
+  "layer": "vein",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 432
+ },
+ {
+  "name": "Vertebra C4",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1940
+ },
+ {
+  "name": "Vertebra C5",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2336
+ },
+ {
+  "name": "Vertebra C6",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2304
+ },
+ {
+  "name": "Vertebra C7",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2164
+ },
+ {
+  "name": "Vertebra T1",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1946
+ },
+ {
+  "name": "Vertebra T2",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2142
+ },
+ {
+  "name": "Vertebra T3",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2344
+ },
+ {
+  "name": "Vertebra T4",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2216
+ },
+ {
+  "name": "Vertebra T5",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2152
+ },
+ {
+  "name": "Vertebra T6",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1780
+ },
+ {
+  "name": "Vertebra T7",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 2794
+ },
+ {
+  "name": "Vertebra T8",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 1647
+ },
+ {
+  "name": "Xiphoid process",
+  "layer": "context_bone",
+  "source": "Z-Anatomy",
+  "approx": false,
+  "triangles": 913
+ }
+]
