@@ -4,7 +4,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 132,
+  "triangles": 1324,
   "kind": "origin"
  },
  {
@@ -12,7 +12,7 @@
   "layer": "muscle",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 1054
+  "triangles": 1508
  },
  {
   "name": "Deep branch of transverse cervical artery",
@@ -47,7 +47,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 414,
+  "triangles": 6904,
   "kind": "origin"
  },
  {
@@ -204,7 +204,7 @@
   "layer": "ligament_capsule",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 3232
+  "triangles": 12928
  },
  {
   "name": "Articular capsule of sternoclavicular joint",
@@ -232,7 +232,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 182,
+  "triangles": 364,
   "kind": "insertion"
  },
  {
@@ -240,7 +240,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 348,
+  "triangles": 996,
   "kind": "origin"
  },
  {
@@ -341,7 +341,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 1012,
+  "triangles": 2896,
   "kind": "origin"
  },
  {
@@ -413,7 +413,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 192,
+  "triangles": 1924,
   "kind": "origin"
  },
  {
@@ -465,7 +465,7 @@
   "layer": "ligament_capsule",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 12
+  "triangles": 48
  },
  {
   "name": "Coracobrachial bursa",
@@ -479,7 +479,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 174,
+  "triangles": 2900,
   "kind": "origin"
  },
  {
@@ -494,63 +494,63 @@
   "layer": "ligament_capsule",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 200
+  "triangles": 800
  },
  {
   "name": "Costal cartilage of eighth rib",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 2624
+  "triangles": 656
  },
  {
   "name": "Costal cartilage of fifth rib",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 6492
+  "triangles": 388
  },
  {
   "name": "Costal cartilage of first rib",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 2772
+  "triangles": 166
  },
  {
   "name": "Costal cartilage of fourth rib",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 4472
+  "triangles": 268
  },
  {
   "name": "Costal cartilage of second rib",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 3408
+  "triangles": 204
  },
  {
   "name": "Costal cartilage of seventh rib",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 13764
+  "triangles": 824
  },
  {
   "name": "Costal cartilage of sixth rib",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 8118
+  "triangles": 486
  },
  {
   "name": "Costal cartilage of third rib",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 3600
+  "triangles": 216
  },
  {
   "name": "Costoclavicular ligament",
@@ -628,7 +628,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 218,
+  "triangles": 3660,
   "kind": "origin"
  },
  {
@@ -650,7 +650,7 @@
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 8270
+  "triangles": 1240
  },
  {
   "name": "Extensor carpi radialis brevis",
@@ -685,14 +685,14 @@
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 9376
+  "triangles": 936
  },
  {
   "name": "First rib",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 3210
+  "triangles": 480
  },
  {
   "name": "Flexor carpi radialis",
@@ -713,14 +713,14 @@
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 8646
+  "triangles": 1296
  },
  {
   "name": "Glenoid labrum",
   "layer": "ligament_capsule",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 848
+  "triangles": 3392
  },
  {
   "name": "Greater supraclavicular fossa",
@@ -762,7 +762,7 @@
   "layer": "ligament_capsule",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 320
+  "triangles": 1280
  },
  {
   "name": "Inferior lateral brachial cutaneous nerve",
@@ -833,7 +833,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 806,
+  "triangles": 13452,
   "kind": "origin"
  },
  {
@@ -841,7 +841,7 @@
   "layer": "muscle",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 3166
+  "triangles": 12664
  },
  {
   "name": "Interclavicular ligament",
@@ -961,7 +961,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 196,
+  "triangles": 3296,
   "kind": "insertion"
  },
  {
@@ -969,7 +969,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 354,
+  "triangles": 1012,
   "kind": "origin"
  },
  {
@@ -991,7 +991,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 678,
+  "triangles": 11332,
   "kind": "insertion"
  },
  {
@@ -999,7 +999,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 8,
+  "triangles": 152,
   "kind": "origin"
  },
  {
@@ -1007,7 +1007,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 26,
+  "triangles": 456,
   "kind": "origin"
  },
  {
@@ -1015,7 +1015,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 26,
+  "triangles": 460,
   "kind": "origin"
  },
  {
@@ -1023,7 +1023,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 14,
+  "triangles": 256,
   "kind": "origin"
  },
  {
@@ -1031,7 +1031,7 @@
   "layer": "muscle",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 2156
+  "triangles": 3082
  },
  {
   "name": "Long head of biceps brachii (origin)",
@@ -1046,7 +1046,7 @@
   "layer": "muscle",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 3218
+  "triangles": 12872
  },
  {
   "name": "Long head of triceps brachii (origin)",
@@ -1075,7 +1075,7 @@
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 2662
+  "triangles": 930
  },
  {
   "name": "Medial antebrachial cutaneous nerve",
@@ -1103,7 +1103,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 538,
+  "triangles": 1540,
   "kind": "origin"
  },
  {
@@ -1160,7 +1160,7 @@
   "layer": "ligament_capsule",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 280
+  "triangles": 1120
  },
  {
   "name": "Middle trunk of brachial plexus",
@@ -1260,7 +1260,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 182,
+  "triangles": 732,
   "kind": "insertion"
  },
  {
@@ -1268,7 +1268,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 242,
+  "triangles": 1616,
   "kind": "origin"
  },
  {
@@ -1276,7 +1276,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 152,
+  "triangles": 2564,
   "kind": "insertion"
  },
  {
@@ -1284,7 +1284,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 112,
+  "triangles": 1876,
   "kind": "insertion"
  },
  {
@@ -1292,7 +1292,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 226,
+  "triangles": 1508,
   "kind": "insertion"
  },
  {
@@ -1300,7 +1300,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 286,
+  "triangles": 4788,
   "kind": "origin"
  },
  {
@@ -1490,7 +1490,7 @@
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 5364
+  "triangles": 804
  },
  {
   "name": "Serratus anterior muscle",
@@ -1547,7 +1547,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 952,
+  "triangles": 15896,
   "kind": "insertion"
  },
  {
@@ -1555,7 +1555,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 280,
+  "triangles": 4696,
   "kind": "insertion"
  },
  {
@@ -1655,7 +1655,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 702,
+  "triangles": 11728,
   "kind": "origin"
  },
  {
@@ -1670,7 +1670,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 260,
+  "triangles": 2616,
   "kind": "insertion"
  },
  {
@@ -1678,7 +1678,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 248,
+  "triangles": 4156,
   "kind": "insertion"
  },
  {
@@ -1686,7 +1686,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 172,
+  "triangles": 1732,
   "kind": "insertion"
  },
  {
@@ -1694,7 +1694,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 120,
+  "triangles": 2004,
   "kind": "insertion"
  },
  {
@@ -1702,7 +1702,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 168,
+  "triangles": 2808,
   "kind": "insertion"
  },
  {
@@ -1710,7 +1710,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 184,
+  "triangles": 1844,
   "kind": "insertion"
  },
  {
@@ -1718,7 +1718,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 108,
+  "triangles": 1800,
   "kind": "insertion"
  },
  {
@@ -1726,7 +1726,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 300,
+  "triangles": 5032,
   "kind": "origin"
  },
  {
@@ -1734,21 +1734,21 @@
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 9776
+  "triangles": 2444
  },
  {
   "name": "Sixth rib",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 10132
+  "triangles": 1012
  },
  {
   "name": "Sternocostal head of pectoralis major muscle (insertion 1)",
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 1194,
+  "triangles": 4776,
   "kind": "insertion"
  },
  {
@@ -1756,7 +1756,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 348,
+  "triangles": 2328,
   "kind": "insertion"
  },
  {
@@ -1764,7 +1764,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 362,
+  "triangles": 6040,
   "kind": "insertion"
  },
  {
@@ -1844,7 +1844,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 1020,
+  "triangles": 17020,
   "kind": "origin"
  },
  {
@@ -1852,7 +1852,7 @@
   "layer": "muscle",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 2952
+  "triangles": 11808
  },
  {
   "name": "Subtendinous bursa of infraspinatus muscle",
@@ -1873,7 +1873,7 @@
   "layer": "bursa",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 146
+  "triangles": 1472
  },
  {
   "name": "Subtendinous bursa of triceps brachii muscle",
@@ -1901,7 +1901,7 @@
   "layer": "ligament_capsule",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 200
+  "triangles": 800
  },
  {
   "name": "Superior lateral brachial cutaneous nerve",
@@ -1995,7 +1995,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 798,
+  "triangles": 7992,
   "kind": "origin"
  },
  {
@@ -2003,14 +2003,14 @@
   "layer": "muscle",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 1430
+  "triangles": 5720
  },
  {
   "name": "Teres major muscle (origin)",
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 284,
+  "triangles": 4756,
   "kind": "origin"
  },
  {
@@ -2025,7 +2025,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 182,
+  "triangles": 1820,
   "kind": "insertion"
  },
  {
@@ -2033,7 +2033,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 338,
+  "triangles": 5648,
   "kind": "origin"
  },
  {
@@ -2041,14 +2041,14 @@
   "layer": "muscle",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 1522
+  "triangles": 6088
  },
  {
   "name": "Third rib",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 6980
+  "triangles": 1046
  },
  {
   "name": "Thoraco-acromial artery",
@@ -2104,7 +2104,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 182,
+  "triangles": 3048,
   "kind": "origin"
  },
  {
@@ -2162,7 +2162,7 @@
   "layer": "attachment",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 1200,
+  "triangles": 3432,
   "kind": "origin"
  },
  {
@@ -2198,83 +2198,83 @@
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 2336
+  "triangles": 1168
  },
  {
   "name": "Vertebra C6",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 2304
+  "triangles": 1152
  },
  {
   "name": "Vertebra C7",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 2164
+  "triangles": 1082
  },
  {
   "name": "Vertebra T1",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 1946
+  "triangles": 972
  },
  {
   "name": "Vertebra T2",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 2142
+  "triangles": 1070
  },
  {
   "name": "Vertebra T3",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 2344
+  "triangles": 1172
  },
  {
   "name": "Vertebra T4",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 2216
+  "triangles": 1108
  },
  {
   "name": "Vertebra T5",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 2152
+  "triangles": 1506
  },
  {
   "name": "Vertebra T6",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 1780
+  "triangles": 1246
  },
  {
   "name": "Vertebra T7",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 2794
+  "triangles": 1396
  },
  {
   "name": "Vertebra T8",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 1647
+  "triangles": 1151
  },
  {
   "name": "Xiphoid process",
   "layer": "context_bone",
   "source": "Z-Anatomy",
   "approx": false,
-  "triangles": 913
+  "triangles": 228
  }
 ]

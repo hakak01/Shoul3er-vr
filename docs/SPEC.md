@@ -21,7 +21,8 @@ PHASE A: assets
 1. Region (right side): from the neck root (C4) to the proximal third of the forearm, including the elbow. Include whole muscles that move the shoulder girdle even where they extend outside the region (trapezius, latissimus, serratus anterior, pectoralis major and minor, levator scapulae, rhomboids, scalenes). Context bones (layer "context_bone", ghosted by default): sternum, right ribs 1–8, C4–T8 vertebrae. Include the whole radius and ulna (needed for the elbow and forearm axes).
 2. As in Han-vr Phase A: swap the bones for BodyParts3D bones (ICP; keep the Z-Anatomy bone if the mean error is >1.5 mm), repair, convert curves to lighter meshes, keep the Bone/Cartilage/Tendon material slots and the origin/insertion footprints.
 3. Keep the Z-Anatomy world coordinates in the file (no recentring), so this model and the Han-vr hand line up later. Recentre only in the viewer.
-4. Budget: ≤600k triangles; assets/ ≤25 MB; meshopt GLB. If over, decimate only large flat muscles (≤0.3 mm change).
+4. Budget: aim for ≤600k triangles and assets/ ≤25 MB (meshopt GLB). NEVER decimate the clavicle, scapula, humerus, radius, ulna, muscles, tendons, ligaments, capsule, labrum, bursae, nerves or vessels. If over budget, reduce only the ghosted context bones (ribs, costal cartilages, vertebrae, sternum). If the total is still above 600k, report it; I will check fps on the Quest before anything else is cut.
+4b. These are coarse in the source and I will zoom into them: smooth them with one subdivision level (shape change ≤0.3 mm): rotator cuff tendons, glenohumeral capsule and ligaments, labrum, coracohumeral and coracoacromial ligaments, long head of biceps tendon.
 5. Export assets/shoulder.glb + assets/manifest.json (same fields as Han-vr). Layers: as in Han-vr plus bursa, context_bone, landmark.
 6. Write docs/GAPS.md against REQUIRED STRUCTURES and docs/CHECKS.md against ANATOMY CHECKS (measure and report only; change nothing).
 

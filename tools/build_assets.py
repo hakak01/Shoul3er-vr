@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.join(ROOT, 'tools'))
 import bpy, bmesh
 import numpy as np
 from scipy.spatial import cKDTree
-import zsel, boneswap, decimate
+import zsel, boneswap, decimate, subdiv
 from region import ACTIVE as REG, R
 
 BLEND = os.path.join(ROOT, 'data/raw/zblend/Z-Anatomy/Startup.blend')
@@ -175,9 +175,20 @@ def main():
     tri = {}
     for it in items:
         tri[it['name']] = repair(it)
+    for it in items:
+        if R['smooth'].search(it['name']):
+            v, f, m = mesh_arrays(it['obj'].data)
+            nv, nf, nm, dev = subdiv.smooth(v, f, m)
+            set_geometry(it['obj'].data, nv, nf, nm)
+            it['obj'].data.polygons.foreach_set('use_smooth', [True] * len(nf))
+            log('subdivide %-45s %5d -> %6d  max shape change %.2f mm (vertex move %.2f)' % (
+                it['name'], len(f), len(nf), dev, subdiv.smooth.moved))
+            tri[it['name']] = len(nf)
     log('before budget: %d triangles' % sum(tri.values()))
-    log('after flat-muscle decimation: %d' % decimate.to_budget(items, tri, REG['budget'], R['flat'], log))
-    log('after footprint decimation: %d' % decimate.to_budget(items, tri, REG['budget'], R['footprints'], log))
+    ctx = [it for it in items if it['layer'] == 'context_bone']
+    decimate.MAX_DEV = REG['reduce_dev']
+    decimate.to_budget(ctx, tri, REG['budget'], R['context_bones'], log)
+    log('after context-bone decimation: %d' % sum(tri.values()))
     export(items)
     os.makedirs(OUT, exist_ok=True)
     man = []

@@ -42,11 +42,12 @@ SHOULDER = dict(
     sides=r'\.[a-z0-9]*r$',   # right-side suffixes: .r .or .er .e2r
     systems=(1, 2, 3, 4, 5, 6, 7, 9),
     budget=600000,
-    # large flat muscles (and their footprints) that may be decimated (<=0.3 mm) to meet budget
-    flat=r'trapezius|latissimus|serratus anterior|pectoralis major|rhomboid|levator scapulae|'
-         r'subscapularis muscle \(origin|infraspinatus muscle \(origin|supraspinatus muscle \(origin',
-    # second pass if still over budget: every muscle footprint (flat patch on bone)
-    footprints=r'\((origin|insertion)',
+    # only the ghosted context bones may be decimated to meet the budget
+    reduce_dev=0.0003,
+    # coarse in the source: one Loop subdivision level, shape change <= 0.3 mm
+    smooth=r'^(Supraspinatus muscle|Infraspinatus muscle|Subscapularis muscle|Teres minor muscle|'
+           r'Articular capsule of glenohumeral joint|(Superior|Middle|Inferior) glenohumeral ligament|'
+           r'Glenoid labrum|Coracohumeral ligament|Coraco-acromial ligament|Long head of biceps brachii)$',
     centre='glenohumeral',    # viewer recentres here (Phase B)
 )
 
