@@ -1,5 +1,5 @@
 {
-  "_help": "Edit colours (#rrggbb), roughness (0 = glossy, 1 = matte), opacity (0-1). patternScale = fineness of texture, patternStrength = how visible it is. Reload the page after saving.",
+  "_help": "Edit colours (#rrggbb), roughness (0 = glossy, 1 = matte), opacity (0-1). patternScale = fineness of texture, patternStrength = how visible it is. Reload the page after saving. context_bone opacity 0.3 = ghosted. landmarkLabels true = labels on at start.",
   "background": "#1b1e23",
   "highlight": "#ffc233",
   "looks": {
@@ -17,7 +17,10 @@
     "vein":      { "color": "#3d2b6e", "roughness": 0.3,  "opacity": 0.85, "pattern": "none" },
     "fat":       { "color": "#e8c35a", "roughness": 0.3,  "opacity": 1.0,  "pattern": "lobule",   "patternScale": 450,  "patternStrength": 0.35 },
     "origin":    { "color": "#e02424", "roughness": 0.5,  "opacity": 1.0,  "pattern": "none" },
-    "insertion": { "color": "#2449e0", "roughness": 0.5,  "opacity": 1.0,  "pattern": "none" }
+    "insertion": { "color": "#2449e0", "roughness": 0.5,  "opacity": 1.0,  "pattern": "none" },
+    "lymph":     { "color": "#b8a27e", "roughness": 0.5,  "opacity": 1.0,  "pattern": "mottle",   "patternScale": 700,  "patternStrength": 0.08 },
+    "landmark":  { "color": "#3fd0ff", "roughness": 0.6,  "opacity": 0.28, "pattern": "none" },
+    "landmarkLine": { "color": "#3fd0ff", "roughness": 0.6, "opacity": 1.0, "pattern": "none" }
   },
   "layers": {
     "skin":              { "label": "Skin",                 "on": true,  "opacity": 1.0 },
@@ -25,12 +28,17 @@
     "muscle":            { "label": "Muscles & tendons",    "on": true,  "opacity": 1.0 },
     "tendon_sheath":     { "label": "Tendon sheaths",       "on": true,  "opacity": 1.0 },
     "ligament_capsule":  { "label": "Ligaments & capsules", "on": true,  "opacity": 1.0 },
+    "bursa":             { "label": "Bursae",               "on": true,  "opacity": 1.0 },
     "fat":               { "label": "Subcutaneous fat",     "on": false, "opacity": 1.0 },
     "nerve":             { "label": "Nerves",               "on": true,  "opacity": 1.0 },
     "artery":            { "label": "Arteries",             "on": true,  "opacity": 1.0 },
     "vein":              { "label": "Veins",                "on": true,  "opacity": 1.0 },
+    "lymph_node":        { "label": "Lymph nodes",          "on": true,  "opacity": 1.0 },
     "bone":              { "label": "Bones",                "on": true,  "opacity": 1.0 },
-    "attachment":        { "label": "Origins/insertions",   "on": false, "opacity": 1.0 }
+    "context_bone":      { "label": "Ribs, sternum, spine", "on": true,  "opacity": 0.3 },
+    "attachment":        { "label": "Origins/insertions",   "on": false, "opacity": 1.0 },
+    "landmark":          { "label": "Landmarks",            "on": true,  "opacity": 1.0 }
   },
+  "landmarkLabels": false,
   "skinTone": 0.2
 }

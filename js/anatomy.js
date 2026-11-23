@@ -1,6 +1,7 @@
 // Registry of structures + visibility / ghost / isolate / clip / highlight state.
 import * as THREE from 'three';
 import { lookKey, makeMaterial } from './looks.js';
+import { Labels } from './labels.js';
 
 const GHOST = 0.25;
 const mats = (m) => { const { present, real } = m.userData.mats; return real && real !== present ? [present, real] : [present]; };
@@ -8,7 +9,8 @@ const AXES = { sagittal: new THREE.Vector3(1, 0, 0), axial: new THREE.Vector3(0,
 
 export class Anatomy {
   // root: Group that the user moves. gltfScene: loaded scene. manifest: list. look: look.json
-  constructor(root, gltfScene, manifest, look) {
+  // centre: [x,y,z] in glTF metres put at the origin (GH joint); default = bounding-box centre
+  constructor(root, gltfScene, manifest, look, centre) {
     this.root = root; this.look = look;
     this.layers = JSON.parse(JSON.stringify(look.layers));
     this.showOrigins = this.showInsertions = this.layers.attachment.on;
@@ -20,10 +22,10 @@ export class Anatomy {
     this.skinTone = look.skinTone ?? 0.2;
     this.highlight = new THREE.Color(look.highlight);
 
-    // centre the model on its bounding box
+    // centre the model on the given point (glenohumeral joint) or its bounding box
     const box = new THREE.Box3().setFromObject(gltfScene);
     this.center = new THREE.Group();
-    this.center.position.copy(box.getCenter(new THREE.Vector3())).negate();
+    this.center.position.copy(centre ? new THREE.Vector3(...centre) : box.getCenter(new THREE.Vector3())).negate();
     this.center.add(gltfScene); root.add(this.center);
     root.updateMatrixWorld(true);
     this.box = box.clone().translate(this.center.position);   // model-space box (centred)
@@ -33,9 +35,10 @@ export class Anatomy {
     const bySan = new Map(manifest.map((e) => [sanitize(e.name), e]));
     const inv = new THREE.Matrix4().copy(root.matrixWorld).invert();
     for (const node of [...gltfScene.children]) {
-      const e = info.get(node.userData.name) || bySan.get(node.name);
+      const raw = node.userData.name || node.name, e = info.get(raw) || bySan.get(node.name) ||
+        info.get(raw.replace(/\.\d{3}$/, ''));   // Blender duplicate suffix, e.g. 'Vertebra C4.001'
       if (!e) { console.warn('not in manifest', node.name); continue; }
-      const s = { name: e.name, layer: e.layer, kind: e.kind || null, approx: !!e.approx, source: e.source,
+      const s = { name: e.name, layer: e.layer, kind: e.kind || null, approx: !!e.approx, source: e.source, label: e.label,
         node, meshes: [], hidden: false, ghost: false };
       node.traverse((m) => {
         if (!m.isMesh) return;
@@ -50,6 +53,7 @@ export class Anatomy {
       this.structs.push(s); this.byName.set(s.name, s);
     }
     this.structs.sort((a, b) => a.name.localeCompare(b.name));
+    this.labels = new Labels(this, look.landmarkLabels ?? false);
     this.setSkinTone(this.skinTone);
     this.apply();
   }
@@ -77,6 +81,7 @@ export class Anatomy {
       }
     }
     this.pickables = this.structs.filter((s) => this.visibleOf(s)).flatMap((s) => s.meshes);
+    if (this.labels) this.labels.update();
     this.onChange();
   }
 

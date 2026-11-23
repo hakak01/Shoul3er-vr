@@ -42,12 +42,12 @@
     ["tendon|chiasm|central slip|lateral bands|sagittal bands", "tendon"],
     ["vein|venous", "vein"],
     ["artery|arteries|arterial|palmar arch", "artery"],
-    ["nerve", "nerve"],
+    ["nerve|brachial plexus", "nerve"],
     ["cartilage|meniscus", "cartilage"],
     ["nail|perionyx", "nail"],
     ["fat", "fat"],
     ["ligament|plate|pulley|retinacul|aponeuros|fascia|septum|capsule|cord", "ligament"]
   ],
-  "layerDefault": { "bone": "bone", "muscle": "muscle", "ligament_capsule": "ligament", "fascia_retinacula": "ligament",
+  "layerDefault": { "bone": "bone", "context_bone": "bone", "bursa": "sheath", "muscle": "muscle", "ligament_capsule": "ligament", "fascia_retinacula": "ligament",
     "tendon_sheath": "sheath", "nerve": "nerve", "artery": "artery", "vein": "vein", "fat": "fat", "skin": "skin" }
 }

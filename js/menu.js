@@ -2,15 +2,16 @@
 import { Panel } from './panel.js';
 
 const LAYER_LABEL = { skin: 'Skin', fat: 'Subcutaneous fat', fascia_retinacula: 'Fascia & retinacula', muscle: 'Muscles & tendons',
-  tendon_sheath: 'Tendon sheaths', ligament_capsule: 'Ligaments & capsules', nerve: 'Nerves',
-  artery: 'Arteries', vein: 'Veins', bone: 'Bones', attachment: 'Origins/insertions' };
+  tendon_sheath: 'Tendon sheaths', ligament_capsule: 'Ligaments & capsules', bursa: 'Bursae', nerve: 'Nerves',
+  artery: 'Arteries', vein: 'Veins', lymph_node: 'Lymph nodes', bone: 'Bones', context_bone: 'Ribs, sternum, spine',
+  attachment: 'Origins/insertions', landmark: 'Landmarks' };
 const KEYS = ['ABCDEFGHI', 'JKLMNOPQR', 'STUVWXYZ-'];
 
 export class Menus {
   // app: { anatomy, resetView(), focus(s), exitXR(), inXR() , fps }
   constructor(app) {
     this.app = app; this.tab = 'layers'; this.query = ''; this.page = 0;
-    this.menu = new Panel(640, 800, 0.22);
+    this.menu = new Panel(640, 900, 0.22);
     this.info = new Panel(640, 330, 0.22);
     this.refresh();
   }
@@ -31,12 +32,12 @@ export class Menus {
     y += 26;
     for (const k of Object.keys(LAYER_LABEL)) {
       const L = A.layers[k]; if (!L) continue;
-      p.button(15, y, 265, 46, (L.on ? '✓ ' : '   ') + (L.label || LAYER_LABEL[k]),
-        () => { A.setLayer(k, !L.on); this.refresh(); }, { active: L.on, size: 22 });
-      p.text(625, y + 23, Math.round(L.opacity * 100) + '%', { size: 20, align: 'right' });
+      p.button(15, y, 265, 42, (L.on ? '✓ ' : '   ') + (L.label || LAYER_LABEL[k]),
+        () => { A.setLayer(k, !L.on); this.refresh(); }, { active: L.on, size: 21 });
+      p.text(625, y + 21, Math.round(L.opacity * 100) + '%', { size: 20, align: 'right' });
       const pct = p.items[p.items.length - 1];
-      p.slider(300, y, 255, 46, L.opacity, (v) => { A.setLayerOpacity(k, v); pct.label = Math.round(v * 100) + '%'; });
-      y += 52;
+      p.slider(300, y, 255, 42, L.opacity, (v) => { A.setLayerOpacity(k, v); pct.label = Math.round(v * 100) + '%'; });
+      y += 47;
     }
     p.button(15, y + 10, 300, 56, 'Show all', () => { A.showAll(); this.refresh(); });
     p.button(325, y + 10, 300, 56, 'Reset view', () => this.app.resetView());
@@ -84,7 +85,9 @@ export class Menus {
       { active: A.showInsertions, color: '#2449e0' });
     y += 70;
     p.text(20, y + 10, 'Skin tone', { size: 22, bold: true }); y += 30;
-    p.slider(15, y, 610, 52, A.skinTone, (v) => A.setSkinTone(v)); y += 70;
+    p.slider(15, y, 610, 52, A.skinTone, (v) => A.setSkinTone(v)); y += 62;
+    p.button(15, y, 610, 52, 'Landmark labels: ' + (A.labels.on ? 'ON' : 'off'), () => { A.labels.set(!A.labels.on); this.refresh(); },
+      { active: A.labels.on }); y += 66;
     const R = this.app.realism, view = R ? R.view : 'present';
     p.text(20, y + 10, 'View' + (R && R.status ? '  (' + R.status + ')' : ''), { size: 22, bold: true }); y += 30;
     [['Present', 'present'], ['Realistic', 'realistic'], ['Cadaver', 'cadaver']].forEach(([t, v], i) =>
@@ -92,7 +95,7 @@ export class Menus {
     p.button(15, y, 300, 56, 'Show all', () => { A.showAll(); this.refresh(); });
     p.button(325, y, 300, 56, 'Reset view', () => this.app.resetView()); y += 66;
     if (this.app.inXR()) p.button(15, y, 610, 60, 'Exit VR / MR', () => this.app.exitXR(), { active: true, color: '#b03030' });
-    p.text(625, 785, this.app.fps ? this.app.fps + ' fps' : '', { size: 18, align: 'right', color: '#9aa' });
+    p.text(625, p.H - 15, this.app.fps ? this.app.fps + ' fps' : '', { size: 18, align: 'right', color: '#9aa' });
   }
 
   buildInfo() {

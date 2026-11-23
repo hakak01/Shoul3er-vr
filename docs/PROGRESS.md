@@ -1,25 +1,25 @@
 # PROGRESS (updated 2026-11-23)
 
 ## Done
-- Step 0: copied from Han-vr (CLAUDE.md, .gitignore, .nojekyll, ATTRIBUTION.md, index.html, js/, tools/, assets look/tissues/tex/env). docs/SPEC.md saved.
-- Phase A (redone with new rules 4/4b): assets/shoulder.glb (5.1 MB, meshopt) + manifest.json: 315 objects, 707,437 triangles (OVER 600k aim). assets/ 15 MB.
-- docs/GAPS.md (missing: IGHL bands, rotator cable, subscapular bursa, lateral/medial cords, intercostobrachial n., superior thoracic a., 3 thoraco-acromial branches, fat). docs/CHECKS.md.
+- Phase A: assets/shoulder.glb (5.1 MB, 315 objects, 707k triangles) + manifest.json; GAPS.md, CHECKS.md.
+- Phase B (viewer): reads assets/model.json {glb, gaps, landmarks, title, center}; recentred on the GH joint; starts in Realistic; Present/Realistic/Cadaver unchanged.
+- Landmarks: tools/build_landmarks.py → assets/landmarks.glb (116 kB, 7 patches, 15.6k triangles) + landmarks.json (approx:true, label point). Faint cyan patch + cyan outline; layer "Landmarks"; Tools → "Landmark labels" toggle (off at start).
+- New layers in look.json: Bursae, Lymph nodes, "Ribs, sternum, spine" (context_bone, 30% opacity = ghosted), Landmarks.
 
 ## Decisions
-- Region rules in tools/region.py (zsel.py reads them): z 1.014 (proximal third of forearm) to 1.51 (top of C4), centre x < -0.03; whole girdle muscles kept; forearm muscles arising at the elbow kept whole; nerves/vessels with limb names kept whole.
-- Layers: Han-vr + bursa, context_bone, lymph_node (new, for axillary nodes); landmark comes in Phase B.
-- Bones: all 5 swapped to BodyParts3D (ICP mean 0.37–0.68 mm, max 2.8 mm). Swap only if BP3D has more triangles.
-- Coordinates: Z-Anatomy world, no recentring. GLB is glTF y-up: glTF (x, y, z) = Z-Anatomy (x, z, -y). Same as Han-vr hand.glb.
-- Budget (rule 4): only context bones decimated (≤0.30 mm): 141k → 33k. Total 763k + 52k subdivision = 815k → 707k. Remaining over-budget is protected tissue; you will check fps first.
-- Smoothing (rule 4b, tools/subdiv.py): 1 Loop subdivision level (×4 triangles), every vertex limited to ≤0.30 mm from the unsmoothed shape, on: 4 cuff muscles (whole objects incl. tendons), GH capsule, SGHL/MGHL/IGHL, labrum, CHL, CA ligament, long head of biceps (whole object). +44k triangles. CA ligament has only 12 triangles in the source, so it stays box-like within 0.3 mm. Nearest-point check: 0.29–0.30 mm on all, 0.36 mm on MGHL (likely a measuring error; vertex moves capped at 0.30).
+- GH centre = sphere fit to humeral head cartilage: glTF (-0.1675, 1.3809, -0.0268) m, radius 22.4 mm, residual 0.31 mm. Viewer puts it at 0,0,0; labrum centre then sits 18 mm medial.
+- Openings found by projecting the bounding structures and taking the enclosed hole; depth interpolated from the walls. Quadrangular space and triangular interval: coronal sections (±6 / ±8 mm) scanned posteriorly from the axillary/radial nerve. Triangular space: full posterior view. Notches: sections across the suprascapular nerve/ligament. Rotator interval: on a sphere round the GH centre through the CHL. Deltopectoral groove: strip between deltoid and pectoralis major rims along the cephalic vein.
+- tissues.json: "brachial plexus" names now use the nerve material (Posterior cord was getting ligament).
+- Start camera: target 15 cm below the GH joint, anterolateral (model is 1 m tall: latissimus reaches the pelvis).
 
 ## Known problems
-- MCN does not pierce coracobrachialis; SSP/ISP footprints differ from Mochizuki; radial nerve leaves the humerus 42 mm low (see CHECKS.md).
-- 707k triangles > 600k aim: fps on Quest unknown. Scapula alone is 113k (BP3D detail). Skin = 20 region patches, not one surface.
-- Viewer still points at hand.glb (Phase B).
+- Fixed in viewer: 17 midline objects (sternum, C4–T8, R subclavian a./v.) carry a ".001" name suffix in shoulder.glb; they were dropped before.
+- Edges touch (% of outline): QS = humerus 50, LHT 32, teres major 16 (teres minor misses); triangular space = teres minor 47, teres major 47, LHT 5; triangular interval = lateral head 67, humerus 32 only (LHT and lateral head touch in this model, so no true gap); rotator interval large (1424 mm²).
+- Deltopectoral groove patch only 52 mm long (where both muscles are within 15 mm of the vein).
+- Phase A problems remain (CHECKS.md); 707k triangles, Quest fps not yet measured. gaps.glb does not exist yet (Phase C), a 404 in the console is expected.
 
 ## Next step
-- Phase B (then Quest fps check at 707k triangles): viewer reads assets/model.json, recentres on GH joint, starts Realistic; landmark patches.
+- You: Quest fps check + landmark review. Then Phase C (gaps).
 
 ## Key files
-- tools/region.py, zsel.py, build_assets.py, decimate.py (context bones only), subdiv.py, measure.py · data/raw/build_log.txt (git-ignored)
+- js/main.js, anatomy.js, labels.js, menu.js, looks.js · assets/model.json, look.json, tissues.json · tools/build_landmarks.py (python3 -I, ~3 s)

@@ -9,7 +9,7 @@ import { Menus } from './menu.js';
 import { XR } from './xr.js';
 import { Realism } from './tissues.js';
 
-const GLB_SIZE = 2.9e6, GAPS_SIZE = 0.7e6;   // used for the loading bar if the server gives no size
+const GLB_SIZE = 5.1e6, GAPS_SIZE = 0.3e6;   // used for the loading bar if the server gives no size
 const app = { fps: 0 };
 window.app = app;
 
@@ -36,19 +36,24 @@ const fill = document.getElementById('fill'), loadText = document.getElementById
 const fail = (e) => { loadText.textContent = 'Loading failed: ' + e; console.error(e); };
 
 async function load() {
-  const [look, manifest, gapsMan] = await Promise.all(['assets/look.json', 'assets/manifest.json', 'assets/gaps.json']
-    .map((u) => fetch(u, { cache: 'no-cache' }).then((r) => r.ok ? r.json() : [])));
+  // assets/model.json names the files: {glb, gaps, landmarks, title, center (GH joint, glTF metres)}
+  const get = (u) => fetch(u, { cache: 'no-cache' }).then((r) => r.ok ? r.json() : []).catch(() => []);
+  const model = await get('assets/model.json'); app.model = model;
+  if (model.title) document.title = model.title + ' VR';
+  const js = (g) => 'assets/' + (g || '').replace(/\.glb$/, '.json');
+  const [look, manifest, gapsMan, markMan] = await Promise.all(['assets/look.json', 'assets/manifest.json',
+    js(model.gaps), js(model.landmarks)].map(get));
   app.bg = new THREE.Color(look.background); scene.background = app.bg;
   const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   const got = {}, tot = {};
   const bar = () => { fill.style.width = Math.min(100, 100 * (got.h + got.g || 0) / ((tot.h || GLB_SIZE) + (tot.g || GAPS_SIZE))) + '%'; };
   const prog = (k) => (e) => { got[k] = e.loaded; tot[k] = e.total; bar(); };
   got.h = got.g = 0;
-  const [gltf, gaps] = await Promise.all([loader.loadAsync('assets/hand.glb', prog('h')),
-    loader.loadAsync('assets/gaps.glb', prog('g')).catch((e) => { console.warn('gaps.glb not loaded', e); return null; })]);
-  if (gaps) for (const n of [...gaps.scene.children]) gltf.scene.add(n);   // approximate (Phase C) structures
+  const opt = (f, k) => f ? loader.loadAsync('assets/' + f, k && prog(k)).catch((e) => { console.warn(f + ' not loaded', e); return null; }) : null;
+  const [gltf, gaps, marks] = await Promise.all([loader.loadAsync('assets/' + model.glb, prog('h')), opt(model.gaps, 'g'), opt(model.landmarks)]);
+  for (const g of [gaps, marks]) if (g) for (const n of [...g.scene.children]) gltf.scene.add(n);   // approximate structures
   loadText.textContent = 'Preparing…';
-  const A = new Anatomy(root, gltf.scene, manifest.concat(gapsMan || []), look); app.anatomy = A;
+  const A = new Anatomy(root, gltf.scene, manifest.concat(gapsMan || [], markMan || []), look, model.center); app.anatomy = A;
   app.menus = new Menus(app);
   A.onChange = () => app.menus && app.menus.buildInfo();
   app.menus.menu.attachDom('menuCanvas'); app.menus.info.attachDom('infoCanvas');
@@ -64,7 +69,7 @@ async function load() {
 function resetView() {
   root.position.set(0, 0, 0); root.quaternion.identity(); root.scale.setScalar(1);
   if (app.xr && app.xr.mode) { app.xr.needPlace = true; return; }
-  camera.position.set(0, 0, 0.95); controls.target.set(0, 0, 0); controls.update();
+  camera.position.set(-0.4, -0.05, 1.0); controls.target.set(0, -0.15, 0); controls.update();   // GH joint = 0,0,0; anterolateral view
 }
 function focus(s) {
   if (app.xr && app.xr.mode) return app.xr.focus(s);
