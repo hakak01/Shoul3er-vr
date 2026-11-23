@@ -1,4 +1,4 @@
-# PROGRESS (updated 2026-11-23, Phase C)
+# PROGRESS (updated 2026-11-23, Phase C done and pushed; waiting for headset review)
 Repo: github.com/hakak01/Shoul3er-vr (user calls it "should3r-vr"); site https://hakak01.github.io/Shoul3er-vr/ (SPEC's "shoulder-vr" URLs mean this repo).
 
 ## Done
