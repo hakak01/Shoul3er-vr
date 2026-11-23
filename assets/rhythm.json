@@ -1,0 +1,19 @@
+{
+  "_help": "Scapulohumeral rhythm. Each list = [humerothoracic elevation (deg), change from the arm-at-side position (deg)]; positive = the named direction. Edit freely and reload; the viewer interpolates linearly. Defaults are approx: upward rotation 0 until 30 deg then 0.4 deg/deg (~2:1 GH:ST); tilt and clavicle values near the bone-pin means of Ludewig 2009 (JBJS Am). Seth 2016 data could not be downloaded.",
+  "approx": true,
+  "scapula": {
+    "upwardRotation":    [[0, 0], [30, 0], [180, 60]],
+    "posteriorTilt":     [[0, 0], [30, 0], [90, 6], [120, 11], [150, 15], [180, 19]],
+    "externalRotation":  [[0, 0], [90, 0], [180, 5]]
+  },
+  "clavicle": {
+    "retraction":        [[0, 0], [90, 7], [180, 15]],
+    "elevation":         [[0, 0], [90, 6], [180, 12]],
+    "posteriorRotation": [[0, 0], [60, 2], [90, 8], [120, 15], [150, 23], [180, 31]]
+  },
+  "limits": {
+    "_help": "Humerothoracic plane of elevation: 0 = abduction (coronal), 90 = flexion (sagittal), -90 = extension, >90 = cross-body. Rotation: + = external. Elbow: 0 = straight. Supination: 0 = thumb up, + = supination. maxElevationByPlane = [plane, max elevation].",
+    "plane": [-90, 150], "elevation": [0, 180], "rotation": [-90, 90], "elbow": [0, 145], "supination": [-80, 85],
+    "maxElevationByPlane": [[-90, 60], [-30, 150], [0, 180], [100, 180], [150, 130]]
+  }
+}

@@ -38,6 +38,7 @@ export class Anatomy {
     for (const node of [...gltfScene.children]) {
       const raw = node.userData.name || node.name, e = info.get(raw) || bySan.get(node.name) ||
         info.get(raw.replace(/\.\d{3}$/, ''));   // Blender duplicate suffix, e.g. 'Vertebra C4.001'
+      if (/^rig:?[a-z]/.test(raw)) continue;   // skeleton (rig.js)
       if (!e) { console.warn('not in manifest', node.name); continue; }
       if (gone.has(e.name)) { node.removeFromParent(); continue; }
       const s = { name: e.name, layer: e.layer, kind: e.kind || null, approx: !!e.approx, source: e.source, label: e.label,

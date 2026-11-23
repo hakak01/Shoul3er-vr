@@ -8,6 +8,7 @@ import { Anatomy } from './anatomy.js';
 import { Menus } from './menu.js';
 import { XR } from './xr.js';
 import { Realism } from './tissues.js';
+import { Rig, prepareSkins } from './rig.js';
 
 const GLB_SIZE = 5.1e6, GAPS_SIZE = 0.3e6;   // used for the loading bar if the server gives no size
 const app = { fps: 0 };
@@ -41,8 +42,8 @@ async function load() {
   const model = await get('assets/model.json'); app.model = model;
   if (model.title) document.title = model.title + ' VR';
   const js = (g) => 'assets/' + (g || '').replace(/\.glb$/, '.json');
-  const [look, manifest, gapsMan, markMan] = await Promise.all(['assets/look.json', 'assets/manifest.json',
-    js(model.gaps), js(model.landmarks)].map(get));
+  const [look, manifest, gapsMan, markMan, rigData, rhythm] = await Promise.all(['assets/look.json', 'assets/manifest.json',
+    js(model.gaps), js(model.landmarks), 'assets/rig.json', 'assets/rhythm.json'].map(get));
   app.bg = new THREE.Color(look.background); scene.background = app.bg;
   const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   const got = {}, tot = {};
@@ -53,7 +54,9 @@ async function load() {
   const [gltf, gaps, marks] = await Promise.all([loader.loadAsync('assets/' + model.glb, prog('h')), opt(model.gaps, 'g'), opt(model.landmarks)]);
   for (const g of [gaps, marks]) if (g) for (const n of [...g.scene.children]) gltf.scene.add(n);   // approximate structures
   loadText.textContent = 'Preparing…';
+  prepareSkins(gltf.scene);
   const A = new Anatomy(root, gltf.scene, manifest.concat(gapsMan || [], markMan || []), look, model.center); app.anatomy = A;
+  if (rigData.bones && rhythm.limits) app.rig = new Rig(app, rigData, rhythm, look);
   app.menus = new Menus(app);
   A.onChange = () => app.menus && app.menus.buildInfo();
   app.menus.menu.attachDom('menuCanvas'); app.menus.info.attachDom('infoCanvas');
@@ -84,6 +87,7 @@ Object.assign(app, {
   resetView, focus,
   inXR: () => !!(app.xr && app.xr.mode),
   exitXR: () => app.xr && app.xr.end(),
+  onPose: () => { if (app.menus && app.anatomy.selected && !app.menus.info.drag) app.menus.buildInfo(); },
   onXREnd: () => { app.xr.cursor.visible = false; resetView(); },
 });
 
@@ -120,6 +124,7 @@ renderer.setAnimationLoop(() => {
     if (app.menus && app.menus.tab === 'tools') app.menus.refresh();
   }
   if (app.xr) app.xr.update(dt);
+  if (app.rig) app.rig.update();
   if (app.realism) app.realism.update();
   if (!app.inXR()) controls.update();
   if (app.anatomy) { root.updateMatrixWorld(); app.anatomy.updateClip(); }

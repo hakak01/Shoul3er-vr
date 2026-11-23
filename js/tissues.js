@@ -134,6 +134,7 @@ export class Realism {
         uCut: { value: new THREE.Color(T.color).multiplyScalar(0.8) } } };
       mat.onBeforeCompile = (sh) => patch(sh, mat);
       mat.customProgramCacheKey = () => 'tissue' + (T.fibre ? 'F' : 'I');
+      if (this.app.rig) this.app.rig.decorate(m, mat);
       m.userData.mats.real = mat; this.mats.push(mat); counts[key] = (counts[key] || 0) + 1;
     }
     console.log('realistic materials per tissue:', counts);

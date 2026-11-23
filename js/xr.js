@@ -20,8 +20,13 @@ export class XR {
       ctrl.addEventListener('disconnected', () => { h.hand = null; h.source = null; });
       ctrl.addEventListener('selectstart', () => this.trigger(h, true));
       ctrl.addEventListener('selectend', () => this.trigger(h, false));
-      ctrl.addEventListener('squeezestart', () => { this.grabbing.add(h); this.grab = null; });
-      ctrl.addEventListener('squeezeend', () => { this.grabbing.delete(h); this.grab = null; });
+      ctrl.addEventListener('squeezestart', () => {
+        const rig = this.app.rig;   // squeeze on the forearm = move the arm; elsewhere = move the model
+        if (rig && rig.tryGrab(h.grip.getWorldPosition(new THREE.Vector3()))) { this.arm = h; return; }
+        this.grabbing.add(h); this.grab = null;
+      });
+      ctrl.addEventListener('squeezeend', () => { if (this.arm === h) { this.arm = null; this.app.menus.refresh(); return; }
+        this.grabbing.delete(h); this.grab = null; });
     }
     // pointer line + cursor for the right hand
     this.line = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3(0, 0, -1)]),
@@ -130,6 +135,10 @@ export class XR {
         A.clip.pos = THREE.MathUtils.clamp(A.clip.pos - gp.axes[3] * dt * 0.25, 0, 1);
         this.stickMoved = true;
       } else if (this.stickMoved) { this.stickMoved = false; this.app.menus.refresh(); }
+    }
+    if (this.arm) {
+      this.app.rig.dragTo(this.arm.grip.getWorldPosition(new THREE.Vector3()));
+      if ((this.armN = (this.armN || 0) + 1) % 8 === 0 && this.app.menus.tab === 'move') this.app.menus.refresh();
     }
     this.updateGrab();
   }

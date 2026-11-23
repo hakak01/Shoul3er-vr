@@ -1,5 +1,6 @@
 // Wrist menu (Layers / Search / Tools) and the selection info panel.
 import { Panel } from './panel.js';
+import { tabMove } from './movemenu.js';
 
 const LAYER_LABEL = { skin: 'Skin', fat: 'Subcutaneous fat', fascia_retinacula: 'Fascia & retinacula', muscle: 'Muscles & tendons',
   tendon_sheath: 'Tendon sheaths', ligament_capsule: 'Ligaments & capsules', bursa: 'Bursae', nerve: 'Nerves',
@@ -20,8 +21,8 @@ export class Menus {
 
   buildMenu() {
     const p = this.menu; p.clear();
-    [['layers', 'Layers'], ['search', 'Search'], ['tools', 'Tools']].forEach(([k, l], i) =>
-      p.button(15 + i * 205, 12, 195, 56, l, () => { this.tab = k; this.refresh(); }, { active: this.tab === k, size: 26 }));
+    [['layers', 'Layers'], ['search', 'Search'], ['move', 'Move'], ['tools', 'Tools']].forEach(([k, l], i) =>
+      p.button(15 + i * 154, 12, 148, 56, l, () => { this.tab = k; this.refresh(); }, { active: this.tab === k, size: 26 }));
     this['tab_' + this.tab](p);
     p.draw();
   }
@@ -67,6 +68,8 @@ export class Menus {
     p.button(480, y, 145, 62, 'Clear', () => { this.query = ''; this.page = 0; this.refresh(); });
   }
 
+  tab_move(p) { tabMove(this, p); }
+
   tab_tools(p) {
     const A = this.A, c = A.clip; let y = 90;
     p.text(20, y + 10, 'Cross-section (clipping plane)', { size: 22, bold: true }); y += 34;
@@ -110,6 +113,8 @@ export class Menus {
       p.text(20, 120, 'Layer: ' + (LAYER_LABEL[s.layer] || s.layer) + (s.kind ? ' · ' + s.kind : ''), { size: 21, color: '#bcd' });
       p.text(20, 150, 'Source: ' + (s.source || ''), { size: 18, color: '#99a', wrap: 600, maxLines: 1 });
       if (s.approx) p.text(20, 182, 'APPROXIMATE – check', { size: 24, bold: true, color: '#ffb02e' });
+      const mv = this.app.rig && this.app.rig.info(s);
+      if (mv) p.text(20, 214, mv, { size: 19, color: '#ffd27a', wrap: 600, maxLines: 1 });
       const b = [['Hide', () => A.hide(s)], ['Ghost', () => A.toggleGhost(s)], ['Isolate', () => A.isolate(s)],
         ['Show all', () => A.showAll()], ['Focus', () => this.app.focus(s)]];
       b.forEach(([l, f], i) => p.button(15 + i * 123, 240, 116, 72, l, () => { f(); this.refresh(); },

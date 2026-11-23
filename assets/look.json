@@ -40,5 +40,7 @@
     "landmark":          { "label": "Landmarks",            "on": true,  "opacity": 1.0 }
   },
   "landmarkLabels": false,
-  "skinTone": 0.2
+  "skinTone": 0.2,
+  "tension": { "_help": "Show tension: ligament/capsule length vs the rest pose. grey (slack) -> yellow at midAt -> red at tightAt (0.08 = 8%)",
+    "slack": "#8c8c8c", "mid": "#f2c400", "tight": "#e02a1b", "midAt": 0.04, "tightAt": 0.08 }
 }
