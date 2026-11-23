@@ -1,4 +1,4 @@
-# PROGRESS (updated 2026-11-23, Phase D1 done and pushed; waiting for headset review)
+# PROGRESS (updated 2026-11-23, Phase D1 saved; waiting for headset review)
 Repo: github.com/hakak01/Shoul3er-vr ("should3r-vr"); site https://hakak01.github.io/Shoul3er-vr/ (SPEC's "shoulder-vr" URLs mean this repo).
 
 ## Done
@@ -23,7 +23,7 @@ Repo: github.com/hakak01/Shoul3er-vr ("should3r-vr"); site https://hakak01.githu
 - First click after moving can be slow (skinned picking is on the CPU). Short head of biceps forced to the radius (its distal end merges into the long head object).
 
 ## Next step
-- You: headset test of Move tab (see report). Then Phase D2 (wrapping, nerves).
+- You: headset test of Move tab (fps on Tools tab; presets; forearm grab; tension in ABER; rhythm.json). Optional uploads to data/upload/: Seth 2016 data, Ludewig 2009 tables, GH capsule strain paper. Then Phase D2.
 
 ## Key files
 - tools/build_rig.py, rig_frames.py, rig_weights.py, glbskin.py · assets/rig.json, rhythm.json · js/rig.js, movemenu.js · data/raw/rig_log.txt. Rebuild order: build_assets → build_landmarks → build_gaps → build_rig.
