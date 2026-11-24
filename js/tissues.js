@@ -77,24 +77,24 @@ export function tissueOf(cfg, name, layer, matName, kind) {
 
 export class Realism {
   constructor(app) {
-    this.app = app; this.view = 'present'; this.ready = false; this.busy = false; this.status = '';
+    this.app = app; this.base = app.base || ''; this.view = 'present'; this.ready = false; this.busy = false; this.status = '';
     this.present = { env: app.scene.environment, hemi: app.lights.hemi.intensity, sun: app.lights.sun.intensity };
   }
 
   async load() {
     if (this.ready || this.busy) return this.loading;
-    this.busy = true; this.status = 'loading…'; this.app.menus.refresh();
+    this.busy = true; this.status = 'loading…'; this.app.menus?.refresh();
     this.loading = (async () => {
-      const cfg = this.cfg = await fetch('assets/tissues.json', { cache: 'no-cache' }).then((r) => r.json());
+      const cfg = this.cfg = await fetch(this.base + 'assets/tissues.json', { cache: 'no-cache' }).then((r) => r.json());
       const { renderer, scene } = this.app;
-      const ktx = new KTX2Loader().setTranscoderPath(BASIS).detectSupport(renderer);
+      const ktx = new KTX2Loader().setTranscoderPath(this.app.basisPath || BASIS).detectSupport(renderer);
       const names = [...new Set(Object.values(cfg.tissues).map((t) => t.tex))];
       const tex = {};
-      await Promise.all(names.map((n) => ktx.loadAsync('assets/tex/' + n + '.ktx2').then((t) => {
+      await Promise.all(names.map((n) => ktx.loadAsync(this.base + 'assets/tex/' + n + '.ktx2').then((t) => {
         t.wrapS = t.wrapT = THREE.RepeatWrapping; t.colorSpace = THREE.NoColorSpace;
         t.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy()); tex[n] = t;
       })));
-      this.env = await new RGBELoader().loadAsync(cfg.hdri).then((h) => {
+      this.env = await new RGBELoader().loadAsync(new URL(cfg.hdri, new URL(this.base, location.href)).href).then((h) => {
         h.mapping = THREE.EquirectangularReflectionMapping;
         const pm = new THREE.PMREMGenerator(renderer), rt = pm.fromEquirectangular(h);
         h.dispose(); pm.dispose(); return rt.texture;
@@ -105,7 +105,7 @@ export class Realism {
       this.buildMaterials(tex);
       ktx.dispose();
       this.ready = true; this.busy = false; this.status = '';
-    })().catch((e) => { this.busy = false; this.status = 'failed: ' + e.message; console.error(e); this.app.menus.refresh(); });
+    })().catch((e) => { this.busy = false; this.status = 'failed: ' + e.message; console.error(e); this.app.menus?.refresh(); });
     return this.loading;
   }
 
@@ -119,7 +119,7 @@ export class Realism {
     const counts = {}; this.mats = [];
     for (const s of A.structs) for (const m of s.meshes) {
       const pm = m.userData.mats.present, key = tissueOf(cfg, s.name, s.layer, m.userData.gltfMat, s.kind);
-      if (!key || !base[key]) { m.userData.mats.real = pm; continue; }
+      if (!key || !base[key] || s.custom) { m.userData.mats.real = pm; continue; }
       const T = cfg.tissues[key], nm = pm.userData.u.uNoiseMat.value, op = T.opacity ?? 1;
       const mat = base[key].clone();
       mat.clippingPlanes = pm.clippingPlanes; mat.side = pm.side;
@@ -167,7 +167,7 @@ export class Realism {
     lights.sun.intensity = real ? cfg.fillLights.directional : this.present.sun;
     if (this.ot) this.ot.intensity = real ? cfg.otLight.intensity : 0;
     this.app.anatomy.setView(real ? 'realistic' : 'present');
-    this.app.menus.refresh();
+    this.app.menus?.refresh();
   }
   toggle() { return this.setView({ present: 'realistic', realistic: 'cadaver' }[this.view] || 'present'); }
 

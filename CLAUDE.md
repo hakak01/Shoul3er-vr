@@ -9,3 +9,4 @@ WORKING RULES
 8. If a download is blocked, stop and give me the exact URL; I will upload the file to data/upload/.
 - At the end of each phase, rewrite docs/PROGRESS.md (max 30 lines) with: Done, Decisions (with numbers), Known problems, Next step, Key files.
 - When compacting, keep file names, measurements, decisions and open problems.
+9. Never edit kit/v1 (frozen; check: python3 -I tools/freeze_kit.py v1 --check). Changes go to kit/v2.

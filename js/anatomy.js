@@ -79,7 +79,7 @@ export class Anatomy {
           const op = mat.userData.baseOpacity * f, tr = op < 0.999;
           mat.opacity = op;
           if (mat.transparent !== tr) { mat.transparent = tr; mat.depthWrite = !tr; mat.needsUpdate = true; }
-          mat.emissive.copy(s === this.selected ? this.highlight : new THREE.Color(0)).multiplyScalar(0.35);
+          if (mat.emissive) mat.emissive.copy(s === this.selected ? this.highlight : new THREE.Color(0)).multiplyScalar(0.35);
         }
       }
     }
