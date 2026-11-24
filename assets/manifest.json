@@ -893,13 +893,6 @@
   "triangles": 100
  },
  {
-  "name": "Lateral femoral cutaneous nerve",
-  "layer": "nerve",
-  "source": "Z-Anatomy",
-  "approx": false,
-  "triangles": 768
- },
- {
   "name": "Lateral head of triceps brachii (origin)",
   "layer": "attachment",
   "source": "Z-Anatomy",

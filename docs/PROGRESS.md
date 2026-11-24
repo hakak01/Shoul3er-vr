@@ -1,7 +1,7 @@
 # PROGRESS (updated 2026-11-23, Phase D2 saved; waiting for headset review)
 Repo: github.com/hakak01/Shoul3er-vr ("should3r-vr"); site https://hakak01.github.io/Shoul3er-vr/ (SPEC's "shoulder-vr" URLs mean this repo).
 ## Done
-- A: shoulder.glb (315 objects). B: viewer, landmarks. C: gaps.glb. D1: 6-bone ISB rig, rhythm, Move tab, bulge, ligament tension, VR forearm grab.
+- A: shoulder.glb (314 objects; lateral femoral cutaneous n. removed 2026-11-24, region.py fixed). B: viewer, landmarks. C: gaps.glb. D1: 6-bone ISB rig, rhythm, Move tab, bulge, ligament tension, VR forearm grab.
 - D2: tools/build_wrap.py (+ rig_pose, wrap_fit, wrap_morph, wrap_rope; ~2 min) → 6 corrective morph targets in shoulder/gaps.glb + assets/wrap.json. js/wrap.js (scapula-thorax contact, shape blending), js/ropes.js (nerve/vessel ropes, stretch % in the info panel).
 - rhythm.json now = Ludewig 2009 eAppendix tables E-1,2,3,7,8,9 (raising), per plane 0/40/90° (abduction/scapular/flexion).
 ## Decisions
@@ -16,7 +16,6 @@ Repo: github.com/hakak01/Shoul3er-vr ("should3r-vr"); site https://hakak01.githu
 - Full elevation in plane 30°: humerus bone overlaps the scapula 1–4.6 mm above 150° (no GH translation) → 20 supraspinatus vertices ≤4 mm in acromion. 1 trapezius vertex "26 mm" is a test artifact.
 - In-between poses only partly corrected (abd45: 306 vs 402; flex120: 1562 vs 2868 vertices in bone).
 - Rope CPU: ~3.6 ms per frame on desktop while settling (×2–4 on Quest?); Quest fps still not measured.
-- "Lateral femoral cutaneous nerve" (a thigh nerve) was wrongly included in Phase A; sits static below the arm.
 - Manual scapula: correctives assume the rhythm. Z-Anatomy nerves are thin (axillary r 0.56 mm).
 ## Next step
 - You: headset test (see chat). Then Phase E (kit/v1).

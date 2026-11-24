@@ -32,7 +32,7 @@ SHOULDER = dict(
             r'costocervical|investing cervical|femoral|gluteal|inguinal',
     exclude_keep=r'transverse humeral|transverse scapular|serratus anterior|'
                  r'superficial cervical artery|transverse cervical|dorsal scapular|'
-                 r'suprascapular|subclavian|cutaneous|thyrocervical',
+                 r'suprascapular|subclavian|(?<!femoral )cutaneous|thyrocervical',   # not the lateral femoral cutaneous n. (thigh)
     # always kept (right SC joint sits near the midline; subclavian vessels are named 'Right ...')
     always=r'^(Right subclavian (artery|vein)|.*sternoclavicular.*\.r|Interclavicular ligament\.r)$',
     # nerves/vessels with these names are kept whole if they reach into the box
