@@ -1,0 +1,53 @@
+{
+  "_help": "Realistic view. Colours #rrggbb. roughness 0 = mirror, 1 = matte. clearcoat 0-1 = wet film, clearcoatRoughness = how sharp the wet shine is. tex = detail map in assets/tex/, tile = size of one detail tile in mm (smaller = finer), bump = depth of the detail, cavity = colour change in grooves. Reload after saving.",
+  "startView": "realistic",
+  "hdri": "assets/env/hdri_1k.hdr",
+  "hdriRotation": 0,
+  "envIntensity": 0.9,
+  "otLight": { "color": "#fff1e0", "intensity": 2.6, "height": 0.9, "towardViewer": 0.25, "angle": 28, "penumbra": 0.7 },
+  "fillLights": { "hemisphere": 0.2, "directional": 0.35 },
+  "tissues": {
+    "muscle":    { "color": "#7c201b", "roughness": 0.45, "clearcoat": 0.55, "clearcoatRoughness": 0.16, "tex": "muscle",    "fibre": true,  "tile": 12, "bump": 1.0, "cavity": 0.28, "roughVar": 0.25 },
+    "tendon":    { "color": "#ebe5d5", "roughness": 0.35, "clearcoat": 0.85, "clearcoatRoughness": 0.08, "tex": "tendon",    "fibre": true,  "tile": 6,  "bump": 1.0, "cavity": 0.10, "roughVar": 0.30 },
+    "ligament":  { "color": "#d9d1c1", "roughness": 0.55, "clearcoat": 0.45, "clearcoatRoughness": 0.18, "tex": "ligament",  "fibre": true,  "tile": 8,  "bump": 1.0, "cavity": 0.10, "roughVar": 0.25 },
+    "nerve":     { "color": "#e9d9a4", "roughness": 0.45, "clearcoat": 0.5,  "clearcoatRoughness": 0.14, "tex": "nerve",     "fibre": true,  "tile": 8,  "bump": 1.0, "cavity": 0.14, "roughVar": 0.20 },
+    "artery":    { "color": "#a12b22", "roughness": 0.35, "clearcoat": 0.7,  "clearcoatRoughness": 0.10, "tex": "vessel",    "fibre": true,  "tile": 10, "bump": 1.0, "cavity": 0.08, "roughVar": 0.15 },
+    "vein":      { "color": "#40305c", "roughness": 0.32, "clearcoat": 0.75, "clearcoatRoughness": 0.08, "tex": "vessel",    "fibre": true,  "tile": 10, "bump": 1.0, "cavity": 0.08, "roughVar": 0.15 },
+    "bone":      { "color": "#e5dbc2", "roughness": 0.7,  "clearcoat": 0.15, "clearcoatRoughness": 0.35, "tex": "bone",      "fibre": false, "tile": 10, "bump": 1.0, "cavity": 0.16, "roughVar": 0.20 },
+    "cartilage": { "color": "#d6e2ea", "roughness": 0.2,  "clearcoat": 1.0,  "clearcoatRoughness": 0.04, "tex": "cartilage", "fibre": false, "tile": 20, "bump": 1.0, "cavity": 0.05, "roughVar": 0.10 },
+    "fat":       { "color": "#e8c050", "roughness": 0.3,  "clearcoat": 0.6,  "clearcoatRoughness": 0.10, "tex": "fat",       "fibre": false, "tile": 20, "bump": 1.0, "cavity": 0.22, "roughVar": 0.20 },
+    "skin":      { "color": "#d9a88a", "colorDark": "#5c3a26", "roughness": 0.5, "clearcoat": 0.1, "clearcoatRoughness": 0.45, "tex": "skin", "fibre": false, "tile": 6, "bump": 1.0, "cavity": 0.12, "roughVar": 0.20 },
+    "nail":      { "color": "#ecd0c6", "roughness": 0.25, "clearcoat": 0.6,  "clearcoatRoughness": 0.10, "tex": "cartilage", "fibre": false, "tile": 20, "bump": 1.0, "cavity": 0.05, "roughVar": 0.05 },
+    "sheath":    { "color": "#e8eef0", "roughness": 0.15, "clearcoat": 1.0,  "clearcoatRoughness": 0.05, "tex": "vessel",    "fibre": true,  "tile": 10, "bump": 0.6, "cavity": 0.05, "roughVar": 0.05, "opacity": 0.35 }
+  },
+  "_palettes": "Menu View: Realistic = 'tissues' above (living). Cadaver = same, with these overrides. Colours from 12 embalmed, latex-injected dissection photos (median of small patches). Opacity/tex/tile/fibre cannot change per palette.",
+  "palettes": {
+    "cadaver": { "tissues": {
+      "muscle":   { "color": "#8a5a4a", "roughness": 0.5, "clearcoat": 0.6 },
+      "tendon":   { "color": "#f4e8d8" },
+      "ligament": { "color": "#e2d4c2" },
+      "nerve":    { "color": "#f0c49c", "cavity": 0.18 },
+      "artery":   { "color": "#d86a5e", "roughness": 0.3, "clearcoat": 0.85, "clearcoatRoughness": 0.06, "bump": 0.4, "cavity": 0.04 },
+      "vein":     { "color": "#a87c84", "roughness": 0.4, "clearcoat": 0.6 },
+      "bone":     { "color": "#e2d3b0" },
+      "fat":      { "color": "#d6a460", "roughness": 0.35, "cavity": 0.18 },
+      "skin":     { "color": "#d2a690", "colorDark": "#6b4a3a", "clearcoat": 0.2 }
+    } }
+  },
+  "_rules": "Structure name -> tissue. First matching rule wins (case-insensitive). 'overrides' (exact name) beat rules. Bone sub-meshes named Cartilage and muscle sub-meshes named Tendon are set automatically.",
+  "overrides": { "Articular disc of distal radio-ulnar joint": "cartilage" },
+  "rules": [
+    ["fibrous sheath", "ligament"],
+    ["sheath|bursa", "sheath"],
+    ["tendon|chiasm|central slip|lateral bands|sagittal bands", "tendon"],
+    ["vein|venous", "vein"],
+    ["artery|arteries|arterial|palmar arch", "artery"],
+    ["nerve|brachial plexus", "nerve"],
+    ["cartilage|meniscus", "cartilage"],
+    ["nail|perionyx", "nail"],
+    ["fat", "fat"],
+    ["ligament|plate|pulley|retinacul|aponeuros|fascia|septum|capsule|cord", "ligament"]
+  ],
+  "layerDefault": { "bone": "bone", "context_bone": "bone", "bursa": "sheath", "muscle": "muscle", "ligament_capsule": "ligament", "fascia_retinacula": "ligament",
+    "tendon_sheath": "sheath", "nerve": "nerve", "artery": "artery", "vein": "vein", "fat": "fat", "skin": "skin" }
+}

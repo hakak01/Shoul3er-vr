@@ -1,0 +1,11 @@
+{
+ "glb": "shoulder.glb",
+ "gaps": "gaps.glb",
+ "landmarks": "landmarks.glb",
+ "title": "Shoulder & arm",
+ "center": [
+  -0.1675,
+  1.3809,
+  -0.0268
+ ]
+}

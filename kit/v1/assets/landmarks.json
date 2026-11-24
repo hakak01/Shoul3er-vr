@@ -1,0 +1,86 @@
+[
+ {
+  "name": "Quadrangular space",
+  "layer": "landmark",
+  "source": "Approximate landmark, build_landmarks.py (teres minor, teres major, long head of triceps, surgical neck; coronal sections)",
+  "approx": true,
+  "triangles": 2530,
+  "label": [
+   -0.1687,
+   1.3395,
+   -0.0495
+  ]
+ },
+ {
+  "name": "Triangular space",
+  "layer": "landmark",
+  "source": "Approximate landmark, build_landmarks.py (teres minor, teres major, long head of triceps; posterior view)",
+  "approx": true,
+  "triangles": 2530,
+  "label": [
+   -0.1309,
+   1.3098,
+   -0.09
+  ]
+ },
+ {
+  "name": "Triangular interval",
+  "layer": "landmark",
+  "source": "Approximate landmark, build_landmarks.py (teres major, long head of triceps, lateral head of triceps/humerus; posterior view)",
+  "approx": true,
+  "triangles": 2530,
+  "label": [
+   -0.1963,
+   1.3117,
+   -0.0553
+  ]
+ },
+ {
+  "name": "Suprascapular notch",
+  "layer": "landmark",
+  "source": "Approximate landmark, build_landmarks.py (scapula and superior transverse scapular ligament, across the suprascapular nerve)",
+  "approx": true,
+  "triangles": 2530,
+  "label": [
+   -0.1221,
+   1.3982,
+   -0.055
+  ]
+ },
+ {
+  "name": "Spinoglenoid notch",
+  "layer": "landmark",
+  "source": "Approximate landmark, build_landmarks.py (scapula and inferior transverse scapular ligament, across the suprascapular nerve)",
+  "approx": true,
+  "triangles": 2530,
+  "label": [
+   -0.1455,
+   1.3697,
+   -0.0601
+  ]
+ },
+ {
+  "name": "Rotator interval",
+  "layer": "landmark",
+  "source": "Approximate landmark, build_landmarks.py (supraspinatus and subscapularis tendons, coracoid base; on the capsule)",
+  "approx": true,
+  "triangles": 2530,
+  "label": [
+   -0.1556,
+   1.4117,
+   -0.0055
+  ]
+ },
+ {
+  "name": "Deltopectoral groove",
+  "layer": "landmark",
+  "source": "Approximate landmark, build_landmarks.py (deltoid and pectoralis major rims along the cephalic vein)",
+  "approx": true,
+  "triangles": 442,
+  "label": [
+   -0.1331,
+   1.3829,
+   0.0292
+  ]
+ }
+]

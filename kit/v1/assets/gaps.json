@@ -1,0 +1,173 @@
+[
+ {
+  "name": "Anterior band of inferior glenohumeral ligament",
+  "layer": "ligament_capsule",
+  "source": "Approximate model, build_gaps.py (O'Brien 1990: 2-4 o'clock, 2.8 mm thick)",
+  "approx": true,
+  "triangles": 1348,
+  "replaces": "Inferior glenohumeral ligament"
+ },
+ {
+  "name": "Axillary pouch of inferior glenohumeral ligament",
+  "layer": "ligament_capsule",
+  "source": "Approximate model, build_gaps.py (O'Brien 1990: 4-7 o'clock, 1.6 mm thick)",
+  "approx": true,
+  "triangles": 1972,
+  "replaces": "Inferior glenohumeral ligament"
+ },
+ {
+  "name": "Posterior band of inferior glenohumeral ligament",
+  "layer": "ligament_capsule",
+  "source": "Approximate model, build_gaps.py (O'Brien 1990: 7-9 o'clock, 2.8 mm thick)",
+  "approx": true,
+  "triangles": 1348,
+  "replaces": "Inferior glenohumeral ligament"
+ },
+ {
+  "name": "Rotator cable",
+  "layer": "muscle",
+  "source": "Approximate model, build_gaps.py (Burkhart 1993: about 2.6x the crescent; spans SSP and ISP insertions)",
+  "approx": true,
+  "triangles": 1436
+ },
+ {
+  "name": "Subscapular bursa (subscapularis recess)",
+  "layer": "bursa",
+  "source": "Approximate model, build_gaps.py (between subscapularis tendon and scapular neck, opening between SGHL and MGHL)",
+  "approx": true,
+  "triangles": 1580
+ },
+ {
+  "name": "Lateral cord of brachial plexus",
+  "layer": "nerve",
+  "source": "Approximate model, build_gaps.py (anterior divisions of superior + middle trunks; lateral to the 2nd part of the axillary artery)",
+  "approx": true,
+  "triangles": 1940
+ },
+ {
+  "name": "Medial cord of brachial plexus",
+  "layer": "nerve",
+  "source": "Approximate model, build_gaps.py (anterior division of inferior trunk; medial to the 2nd part of the axillary artery)",
+  "approx": true,
+  "triangles": 1940
+ },
+ {
+  "name": "Lateral root of median nerve",
+  "layer": "nerve",
+  "source": "Approximate model, build_gaps.py (lateral cord -> median nerve)",
+  "approx": true,
+  "triangles": 980
+ },
+ {
+  "name": "Medial root of median nerve",
+  "layer": "nerve",
+  "source": "Approximate model, build_gaps.py (medial cord -> median nerve, crossing in front of the artery)",
+  "approx": true,
+  "triangles": 980
+ },
+ {
+  "name": "Musculocutaneous nerve (proximal part)",
+  "layer": "nerve",
+  "source": "Approximate model, build_gaps.py (lateral cord -> enters coracobrachialis 57 mm below the coracoid tip (Flatow 1989 mean) -> existing nerve)",
+  "approx": true,
+  "triangles": 1460
+ },
+ {
+  "name": "Medial antebrachial cutaneous nerve (proximal part)",
+  "layer": "nerve",
+  "source": "Approximate model, build_gaps.py (joins the cord)",
+  "approx": true,
+  "triangles": 980
+ },
+ {
+  "name": "Superior thoracic artery",
+  "layer": "artery",
+  "source": "Approximate model, build_gaps.py (from the 1st part of the axillary artery to the 1st intercostal space)",
+  "approx": true,
+  "triangles": 980
+ },
+ {
+  "name": "Superior thoracic artery (branch to 2nd intercostal space)",
+  "layer": "artery",
+  "source": "Approximate model, build_gaps.py (to the 2nd intercostal space)",
+  "approx": true,
+  "triangles": 980
+ },
+ {
+  "name": "Acromial branch of thoraco-acromial artery",
+  "layer": "artery",
+  "source": "Approximate model, build_gaps.py (over the coracoid and coraco-acromial ligament, deep to the deltoid, to the acromion)",
+  "approx": true,
+  "triangles": 1460
+ },
+ {
+  "name": "Clavicular branch of thoraco-acromial artery",
+  "layer": "artery",
+  "source": "Approximate model, build_gaps.py (superomedially to the subclavius and the clavicle)",
+  "approx": true,
+  "triangles": 980
+ },
+ {
+  "name": "Deltoid branch of thoraco-acromial artery",
+  "layer": "artery",
+  "source": "Approximate model, build_gaps.py (in the deltopectoral groove with the cephalic vein)",
+  "approx": true,
+  "triangles": 2900
+ },
+ {
+  "name": "Intercostobrachial nerve",
+  "layer": "nerve",
+  "source": "Approximate model, build_gaps.py (lateral cutaneous branch of T2: 2nd intercostal space (mid-axillary line) across the axilla to the medial arm)",
+  "approx": true,
+  "triangles": 1940
+ },
+ {
+  "name": "Subcutaneous fat of deltoid region",
+  "layer": "fat",
+  "source": "Approximate model, build_gaps.py (filled to the skin-deep fascia gap)",
+  "approx": true,
+  "triangles": 976
+ },
+ {
+  "name": "Subcutaneous fat of axilla and lateral thorax",
+  "layer": "fat",
+  "source": "Approximate model, build_gaps.py (filled to the skin-deep fascia gap)",
+  "approx": true,
+  "triangles": 1484
+ },
+ {
+  "name": "Subcutaneous fat of pectoral region",
+  "layer": "fat",
+  "source": "Approximate model, build_gaps.py (filled to the skin-deep fascia gap)",
+  "approx": true,
+  "triangles": 1752
+ },
+ {
+  "name": "Subcutaneous fat of neck and supraclavicular fossae",
+  "layer": "fat",
+  "source": "Approximate model, build_gaps.py (filled to the skin-deep fascia gap)",
+  "approx": true,
+  "triangles": 2648
+ },
+ {
+  "name": "Subcutaneous fat of back",
+  "layer": "fat",
+  "source": "Approximate model, build_gaps.py (filled to the skin-deep fascia gap)",
+  "approx": true,
+  "triangles": 2516
+ },
+ {
+  "name": "Subcutaneous fat of arm",
+  "layer": "fat",
+  "source": "Approximate model, build_gaps.py (filled to the skin-deep fascia gap)",
+  "approx": true,
+  "triangles": 3900
+ },
+ {
+  "name": "Subcutaneous fat of elbow",
+  "layer": "fat",
+  "source": "Approximate model, build_gaps.py (filled to the skin-deep fascia gap)",
+  "approx": true,
+  "triangles": 1860
+ }
+]
