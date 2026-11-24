@@ -1,4 +1,4 @@
-# PROGRESS (updated 2026-11-23, Phase D2 saved; waiting for headset review)
+# PROGRESS (updated 2026-11-24, Phase D2 saved + femoral nerve removed; waiting for headset review)
 Repo: github.com/hakak01/Shoul3er-vr ("should3r-vr"); site https://hakak01.github.io/Shoul3er-vr/ (SPEC's "shoulder-vr" URLs mean this repo).
 ## Done
 - A: shoulder.glb (314 objects; lateral femoral cutaneous n. removed 2026-11-24, region.py fixed). B: viewer, landmarks. C: gaps.glb. D1: 6-bone ISB rig, rhythm, Move tab, bulge, ligament tension, VR forearm grab.
